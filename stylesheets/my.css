@@ -88,7 +88,11 @@ vertical-align : middle;
 #new_button a:hover { 
 background : #808080; 
 color : #ffffff; 
-} 
+}
+#header h1  {
+  display:inline-block;
+}
+ 
 #promo { 
 font-size : small; 
 vertical-align : middle;
