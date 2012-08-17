@@ -1,0 +1,131 @@
+body { 
+background-color : #000000; 
+color : #333333; 
+} 
+body, p, ol, ul, td { 
+font-size : 13px; 
+line-height : 18px; 
+font-family : "helvetica", "verdana", "arial", sans-serif; 
+} 
+pre { 
+background-color : #eeeeee; 
+padding : 10px; 
+font-size : 11px; 
+border-radius : 1em; 
+text-decoration : none; 
+padding : 0.5em;
+background: lightgray;
+display: inline-block;
+}
+a { 
+color : #000000; 
+} 
+a:visited { 
+color : #666666; 
+} 
+a:hover { 
+background-color : transparent; 
+color : #000000; 
+text-decoration : none; 
+} 
+textarea, div.textile-toolbar { 
+margin : 0; 
+width : 100%; 
+} 
+textarea { 
+padding : 1em; 
+} 
+div.textile-toolbar button { 
+margin : 0; 
+background-color : #f0f0ee; 
+background-repeat : no-repeat; 
+padding : 2px 0; 
+} 
+div#textile_wrapper { 
+width : 90%; 
+margin : 0; 
+} 
+div#header, div#content { 
+width : 800px; 
+margin : 0 auto;
+padding: 20px;
+} 
+#header { 
+background : #d3d3d3; 
+width: 100%;
+border-top-left-radius : 15px; 
+border-top-right-radius : 15px; 
+border-bottom-right-radius : 0; 
+border-bottom-left-radius : 0; 
+font-size : x-large; 
+font-family : "courier new", monospace; 
+} 
+#title a, #new_button a {
+border-top-left-radius : 1em; 
+border-top-right-radius : 1em; 
+border-bottom-right-radius : 1em; 
+border-bottom-left-radius : 1em; 
+text-decoration : none; 
+padding : 0.5em;
+background: lightgray;
+}
+
+#title {
+padding : 10px;
+margin: 10px 0;
+display: inline-block;
+vertical-align : middle;
+}
+
+#title a {
+border: 1px solid black;
+background : gray;
+text-shadow : 0 0 0.5em lightgreen; 
+color : #ffffff; 
+vertical-align : middle; 
+}
+
+#new_button a:hover { 
+background : #808080; 
+color : #ffffff; 
+} 
+#promo { 
+font-size : small; 
+vertical-align : middle;
+display: inline-block;
+width: 60%;
+} 
+#content { 
+background : #ffffff; 
+padding : 1% 2%; 
+border-top-left-radius : 0; 
+border-top-right-radius : 0; 
+border-bottom-right-radius : 15px; 
+border-bottom-left-radius : 15px; 
+} 
+p#new_button { 
+padding-bottom : 1em; 
+}
+
+div.comment > img {
+  float: right;
+  vertical-align: top;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  display: inline-block;
+  border-radius : 15px; 
+}
+
+div.comment > hr {
+  clear: both;
+  color: transparent;
+  /*display: none;*/
+}
+
+div.comment {
+  clear: both;
+  padding: 1em;
+  background: lightgray;
+  margin: 1em 0;
+  border-radius : 15px; 
+}
