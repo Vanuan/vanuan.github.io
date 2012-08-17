@@ -94,10 +94,12 @@ color : #ffffff;
 }
  
 #promo { 
-font-size : small; 
+font-size : small;
+font-style : bold; 
 vertical-align : middle;
 display: inline-block;
 width: 60%;
+margin: 2%;
 } 
 #content { 
 background : #ffffff; 
