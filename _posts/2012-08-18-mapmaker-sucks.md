@@ -1,8 +1,7 @@
 ---
 layout: default
-published: true
+published: false
+title: Google MapMaker sucks
 ---
-
-# Google MapMaker sucks
 
 It took me a while to realize this.
