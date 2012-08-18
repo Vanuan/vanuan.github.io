@@ -18,6 +18,8 @@ And it's not about technology.
 
 It's about usability, organization and the speed.
 
+<!--break-->
+
 ## The speed?
 
 Yes, the speed. The speed of your changes to appear in production maps. It is very important not only because it encourages people to make more changes, but because you can't proceed further until your changes get accepted.
