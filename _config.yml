@@ -1,2 +1,3 @@
 title: VansLog
 url: http://vanuan.github.com
+paginate: 5 //the number of post per page
