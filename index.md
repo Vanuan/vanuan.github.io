@@ -6,10 +6,10 @@ layout: default
  
   <h2><a href="{{post.url}}">{{ post.title }}</a></h2> 
 
-   {{ post.content | split:'<!--break-->' | first }}
-   {% if post.content contains '<!--break-->' %}
-      <a href="{{ post.url }}">read more</a>
-   {% endif %}
+  {{ post.content | split:'<!--break-->' | first }}
+  {% if post.content contains '<!--break-->' %}
+  <a href="{{ post.url }}">read more</a>
+  {% endif %}
 
   <p><time>{{ post.date | date: "%Y-%m-%d" }}</time></p>
   
