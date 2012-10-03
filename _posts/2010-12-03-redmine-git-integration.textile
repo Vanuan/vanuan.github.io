@@ -5,5 +5,6 @@ title: Redmine git integration
 ---
 
 When you add a git repository into redmine under windows you should be very careful.
+
 Firstly, you should check that you actually referring to .git folder.
 Secondly, make sure your mongrel server knows where your git is located. Add a git folder to your PATH environmental variable.
