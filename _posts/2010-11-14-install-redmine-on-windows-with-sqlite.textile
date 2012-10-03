@@ -4,6 +4,8 @@ published: true
 title: Install redmine on Windows with sqlite
 ---
 
+This tutorial will help you to install redmine on your windows host.
+
 * "Official Redmine installation guide":http://www.redmine.org/wiki/1/RedmineInstall
 
 * Install "ruby 1.8":http://rubyinstaller.org/downloads/
