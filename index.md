@@ -14,6 +14,8 @@ layout: default
 
   <p><time>{{ post.date | date: "%Y-%m-%d" }}</time></p>
 
+  {% else %}
+  {% assign for.length = for.length + 1%}
   {% endif %}
   
   {% endfor %}
