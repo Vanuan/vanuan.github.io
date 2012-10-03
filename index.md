@@ -7,7 +7,7 @@ layout: default
   {% if post.published %}
   <h2><a href="{{post.url}}">{{ post.title }}</a></h2> 
 
-  {{ post.content | split:'<!--break-->' | first }}
+  {{ post.content | split:'<!--break-->' | first | strip_html }}
   {% if post.content contains '<!--break-->' %}
   <a href="{{ post.url }}">read more</a>
   {% endif %}
