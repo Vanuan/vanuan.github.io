@@ -2,7 +2,7 @@
 layout: default
 ---
 
-  {% for post in site.posts offset: 0 limit: 12 %}
+  {% for post in paginator.posts %}
  
   {% if post.published %}
   <h2><a href="{{post.url}}">{{ post.title }}</a></h2> 
@@ -14,8 +14,21 @@ layout: default
 
   <p><time>{{ post.date | date: "%Y-%m-%d" }}</time></p>
 
-  {% else %}
-  {% assign for.length = for.length + 1%}
   {% endif %}
   
   {% endfor %}
+
+<!-- Pagination links -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="/page{{paginator.previous_page}}" class="previous">Previous</a>
+  {% else %}
+    <span class="previous">Previous</span>
+  {% endif %}
+  <span class="page_number ">Page: {{paginator.page}} of {{paginator.total_pages}}</span>
+  {% if paginator.next_page %}
+    <a href="/page{{paginator.next_page}}" class="next ">Next</a>
+  {% else %}
+    <span class="next ">Next</span>
+  {% endif %}
+</div>
