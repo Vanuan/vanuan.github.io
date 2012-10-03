@@ -1,0 +1,19 @@
+---
+layout: default
+published: true
+title: Бага при использовании Join Table
+---
+
+При использовании отношения "многие к многим" следует быть внимательным. Иначе могут возникнуть повторяющиеся записи в таблице объединения.
+
+bc. class PostLabel < ActiveRecord::Base
+  validates_presence_of :label_id, :post_id
+  validates_uniqueness_of :label_id, :scope => :post_id
+  belongs_to :label
+  belongs_to :post
+end
+
+
+h2. Литература
+
+* "Validate Uniqueness on Join Tables in Rails":http://seanbehan.com/ruby-on-rails/validate-uniqueness-on-join-tables-in-rails/

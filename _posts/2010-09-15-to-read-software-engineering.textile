@@ -1,0 +1,34 @@
+---
+layout: default
+published: true
+title: To read. Software Engineering
+---
+
+Online resources:
+* Amazon Reading List (LinkedIn App)
+* Google Books
+* LibraryThing
+* Anobii
+* This blog (tag: books)
+
+Software Construction:
+* Steve McConnell "Code Complete: A Practical Handbook of Software Construction"
+
+OOP:
+* Bertrand Meyer «Object-oriented Software Construction»
+* Bertrand Meyer «Object Success: A Managers guide to object orientation, its impact on the corporation and its use for reengineering the software process».
+* Grady Booch "Object-Oriented Analysis and Design with Applications"
+
+OOD:
+* GoF "Design Patterns: Elements of Reusable Object-Oriented Software"
+
+С++:
+* Bjarne Stroustrup "The C++ Programming Language: Special Edition"
+* Scott Meyers "Effective C++: 55 Specific Ways to Improve Your Programs and Designs"
+* Scott Meyers "More Effective C++: 35 New Ways to Improve Your Programs and Designs"
+
+
+Project Management:
+* Frederick P. Brooks "The Mythical Man-Month: Essays on Software Engineering"
+* Tom DeMarco "Peopleware: Productive Projects and Teams"
+

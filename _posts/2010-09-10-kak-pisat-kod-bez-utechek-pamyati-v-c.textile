@@ -1,0 +1,7 @@
+---
+layout: default
+published: true
+title: Как писать код без утечек памяти в C++
+---
+
+Bjarne Stroustrup recommends: use containers (STL or others; §4.1), resource handles (§5.3.1), and (if needed) smart pointers (§6.2).

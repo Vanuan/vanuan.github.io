@@ -1,0 +1,16 @@
+---
+layout: default
+published: true
+title: Install Redmine Backlogs on Windows
+---
+
+1. Download and install ruby: "Ruby Installer":http://rubyinstaller.org/downloads/
+2. Download and install "ruby devkit":http://rubyinstaller.org/downloads/. "Instructions":https://github.com/oneclick/rubyinstaller/wiki/development-kit
+3. Download and install "git":http://code.google.com/p/msysgit/
+4. Download "Redmine":http://rubyforge.org/frs/?group_id=1850
+5. Run @gem install bundler@ in the console
+6. Fix any build errors by installing appropriate libraries. You may need "ImageMagick":http://www.imagemagick.org/script/binary-releases.php#windows
+7. cd to the redmine folder
+8. Run @bundle install --path vendor/bundle@
+9. @mv config/database.yml.example config/database.yml@
+10. Set up your database. You can use sqlite

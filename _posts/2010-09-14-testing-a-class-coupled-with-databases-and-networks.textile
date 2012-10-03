@@ -1,0 +1,21 @@
+---
+layout: default
+published: true
+title: Testing a class coupled with databases and networks
+---
+
+Иногда существует необходимость тестирования классов, которые взаимодействуют с базой данных, файлами, сетью и подобными объектами. При использовании реальных объектов возникает множество проблем. Например, возможно, что в данный момент сеть и подключение к базе данных недоступны.
+
+Решением в таком случае является создание и использование "Mock"-объектов (от англ. "Mock" - имитация).
+
+h2. To read
+* "How to unit test an object with database queries / Stackoverflow":http://stackoverflow.com/questions/30710/how-to-unit-test-an-object-with-database-queries
+* "Mock object / Wikipedia":http://en.wikipedia.org/wiki/Mock_object
+* "mock / Метки / Хабрахабр":http://habrahabr.ru/tag/mock/
+* "Poor Man's Mock Objects":http://mockpp.sourceforge.net/handbook/poor-object.html
+
+h2. Frameworks
+* "List of unit testing frameworks / Wikipedia":http://en.wikipedia.org/wiki/List_of_unit_testing_frameworks#C.2B.2B
+* "Google C++ mocking":http://code.google.com/p/googlemock/
+* "Google C++ testing":http://code.google.com/p/googletest/
+* "Google testing blog":http://googletesting.blogspot.com/

@@ -1,0 +1,10 @@
+---
+layout: default
+published: true
+title: TODO: categories
+---
+
+I need to develop categories.
+Each category consists of many labels.
+Each label belongs to one category.
+Category list appears on top of every page.

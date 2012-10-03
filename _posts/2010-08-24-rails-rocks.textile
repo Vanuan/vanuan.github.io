@@ -1,0 +1,19 @@
+---
+layout: default
+published: true
+title: Rails Rocks
+---
+
+Данный сайт создан с использованием технологии Ruby on Rails.
+
+“Ruby on Rails is a breakthrough in lowering the barriers of entry to programming.
+Powerful web applications that formerly might have taken weeks or months
+to develop can be produced in a matter of days.”
+
+Обновился до Rails 3.
+
+* "The Getting Started Guide":http://guides.rubyonrails.org/getting_started.html
+** "i18n":http://guides.rubyonrails.org/i18n.html
+* "Ruby on Rails Tutorial Book":http://www.railstutorial.org/
+* "Agile Web Development with Rails, 4th Edition":http://pragprog.com/titles/rails4/agile-web-development-with-rails
+

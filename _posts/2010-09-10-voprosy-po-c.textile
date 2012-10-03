@@ -1,0 +1,22 @@
+---
+layout: default
+published: true
+title: Вопросы по C++
+---
+
+1. Как создать двумерный динамический массив?
+
+По-видимому, так:
+
+bc. vector<vector<double>> v;
+
+Yes, I knew it! :) "C++ Forums: two dimensional arrays":http://www.cplusplus.com/forum/beginner/4811/#msg21177
+
+Oh, there is a gotcha: >> this is a syntax error. Correct declaration would be:
+
+bc. vector< vector<double> > v;
+
+
+2. Какова разница между динамическим массивом (vector) и списком (list)?
+
+3. Возможно ли и как создать ссылку на элемент массива?

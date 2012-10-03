@@ -1,0 +1,42 @@
+---
+layout: default
+published: true
+title: Install redmine on Windows with sqlite
+---
+
+* "Official Redmine installation guide":http://www.redmine.org/wiki/1/RedmineInstall
+
+* Install "ruby 1.8":http://rubyinstaller.org/downloads/
+* Go to the C:\ruby18\bin directory and install gems:
+** gem install rails -v=2.3.5
+** gem install mongrel
+** gem install sqlite3-ruby
+** gem uninstall i18n
+** gem install i18n -v 0.3.7
+* Download http://www.sqlite.org/sqlitedll-3_7_3.zip and unpack to ruby's bin directory.
+* Download the latest Redmine (currently 1.0.3) and unpack it somewhere.
+* Edit config/database.yml:
+
+bc. production:
+  adapter: sqlite3
+  database: db/prod.db
+development:
+  adapter: sqlite3
+  database: db/dev.db
+test:
+  adapter: sqlite3
+  database: db/test.db
+
+* Navigate to the redmine's root directory and run @rake db:migrate@
+* @rake generate_session_store@
+* Check if redmine is running: @mongrel_rails start@
+* @gem install win32-service --platform i386-mswin32@
+* @gem install mongrel_service --platform i386-mswin32@
+
+Install redmine as a service (make sure you have admin rights):
+* @mongrel_rails service::install -N Redmine -c [your redmine folder] -p [portno] -e production@
+* @mongrel_rails service::remove -N Redmine@
+* @rake db:migrate RAILS_ENV=production@
+
+The final step: Go to manage -> services and set service 'redmine" to "automatic"
+

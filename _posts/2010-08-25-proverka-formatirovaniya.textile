@@ -1,0 +1,25 @@
+---
+layout: default
+published: true
+title: Проверка форматирования
+---
+
+Маркированный список:
+* *Жирный*
+* _Курсив_
+* +Подчёркнутый+
+* -Зачёркнутый-
+
+Нумерованный список:
+#  *Жирный*
+# _Курсив_
+# +Подчёркнутый+
+# -Зачёркнутый-
+
+
+Опасность:
+@notextile. 
+<script>document.body.onload=function(){document.body.innerHTML = 'JAVASCRIPT!!! ОПАСНОСТЕ';}</script>@
+
+Опасность устранена:
+notextile. <script>document.body.onload=function(){document.body.innerHTML = 'JAVASCRIPT!!! ОПАСНОСТЕ';}</script>

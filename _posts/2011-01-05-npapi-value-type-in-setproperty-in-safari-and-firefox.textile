@@ -1,0 +1,13 @@
+---
+layout: default
+published: true
+title: NPAPI: Value type in SetProperty in Safari and Firefox
+---
+
+In Safari the @NPVariant *value@ in function @ScriptableObject::SetProperty@ is double.
+
+In Firefox it is int.
+
+To solve this problem you can use
+
+bc. value->value.intValue+value->value.doubleValue

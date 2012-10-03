@@ -1,0 +1,9 @@
+---
+layout: default
+published: true
+title: Show and index
+---
+
+Create one file _showpost.html.erb that has partial with options to display it for index page of for show page.
+
+Сделано.

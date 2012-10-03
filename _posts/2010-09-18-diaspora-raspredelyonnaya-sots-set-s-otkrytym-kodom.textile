@@ -1,0 +1,11 @@
+---
+layout: default
+published: true
+title: Diaspora - распределённая соц. сеть с открытым кодом
+---
+
+!{max-width: 90%}http://www.joindiaspora.com/images/screenshots/stream.png!
+
+* "Новость на ЛОРе":http://www.linux.org.ru/news/internet/5342584
+* "Репозиторий на github'е":http://github.com/diaspora/diaspora
+* "Тэг на Хабрахабре":http://habrahabr.ru/tag/Diaspora/

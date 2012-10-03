@@ -1,0 +1,55 @@
+---
+layout: default
+published: true
+title: QwtPolarPlot transparency and CSS
+---
+
+Apparently, you can't use transparency for QwtPolarPlot now (as for qwtpolar-0.1.0).
+
+When you try to set transparent background for QwtPolarPlot:
+
+bc. app.setStyleSheet("QwtPolarPlot {background: transparent}");
+
+you could see this:
+!{width:200px;height:200px}http://dl.dropbox.com/u/4217195/vanuan.heroku.com/1.png!
+Not very nice, yeah?
+
+This is happenning because QwtPolar library is using some fancy technique for caching.
+
+So, how to fix it? Well, quick fix would be to redefine QwtPolarCanvas::drawCanvas method within your application and comment out that fancy code:
+
+bc. void QwtPolarCanvas::drawCanvas(QPainter *painter,
+    const QwtDoubleRect& canvasRect) {
+  if ( !canvasRect.isValid() )
+           return;
+  plot()->drawCanvas(painter, canvasRect);
+}
+
+So, the problem is solved:
+
+!{width:200px;height:200px}http://dl.dropbox.com/u/4217195/vanuan.heroku.com/2.png!
+
+You can stop there, but what if you're a perfectionist? :)
+
+Let's look what't happenning. The problem is here:
+
+bc. painter->drawPixmap(canvasRect.topLeft().toPoint(), *d_data->cache);
+
+Somehow, QPixmap is not transparent. The solution is to do this:
+
+bc.        QBitmap mask(d_data->cache->size());
+        mask.clear();
+        d_data->cache->setMask(mask);
+
+or that:
+
+bc.  d_data->cache->fill(Qt::transparent);
+
+before calling
+
+bc. plot()->drawCanvas(painter, canvasRect);
+
+*Edit*. Calling plot->canvas()->invalidatePaintCache() every time the plot is changed solves this problem without workaround.
+
+* "Qwt and transparency":http://www.qtforum.org/article/16586/qpainter-problem.html
+* "QPixmap transparent":http://lists.trolltech.com/qt-interest/2006-09/msg00990.html

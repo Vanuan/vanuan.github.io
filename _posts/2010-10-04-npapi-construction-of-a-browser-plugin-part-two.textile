@@ -1,0 +1,74 @@
+---
+layout: default
+published: true
+title: NPAPI. Construction of a browser plugin. Part two
+---
+
+This is a second part of series of posts describing the building of a browser plugin using NPAPI model. First part is "here":http://vanuan.heroku.com/posts/42.
+
+h2. What do we want to build?
+
+1. Plugin shall receive color value from the browser side and fill a rectangle with retrieved color.
+2. Plugin shall receive URL from the browser side, download the document located there and print its text inside plugin's rectangle (download the document using NPN_GetURL).
+3. Plugin shall receive URL of the document containing plugin, find all <a> tags inside this document and print inside plugin's rectangle list of links (anchor tags <a href="..."> link</a>) on the page (download document using NPN_GetURLNotify).
+4. List of links should scroll (NPP_HandleEvent). This means following (for instance):
+Plugin should fit 4 lines of text. List of links require 40 lines. Then to show all links in the plugin you have to scroll this list. On load draw links 1,2,3,4 on some event (mouse click?) 2,4,5,6 then 7,8,9,10 etc.
+
+h2. Step 1. Fill plugin's rectangle with color
+
+To fill a rectangle with color we must:
+
+1. receive a color
+2. handle plugin's paint event
+
+The receiving a color is simple: browser can pass color with embed parameters (passed with NPP_New call).
+
+The second part is not so obvious and platform-specific. On UNIX we must handle "Xlib XEvent":https://developer.mozilla.org/en/NPEvent which is passed with NPP_HandleEvent. NPP_HandleEvent should check event type and return true if plugin can handle such event.
+
+"Xlib documentation":http://www.x.org/archive/X11R6.8.0/doc/manindex3.html is enough for drawing any figures. XFillRectangle and XSetForeground are the functions needed for drawing rectangle with specified color.
+
+We should modify our test page to include the color parameter, height and width: @<embed type="application/simple-plugin" color="0x00aa00" height=500 width=500 />@
+
+The result is:
+
+!http://dl.dropbox.com/u/4217195/vanuan.heroku.com/post_43_NPAPI.png!
+
+Step 1 is done. Time spent from beginning learning NPAPI to this point is 25 hours.
+
+h2. Step 2. Print text on plugin's rectangle
+
+For drawing a text in X Window we can use "XDrawText":http://www.x.org/archive/X11R6.8.0/doc/XDrawText.3.html and "XDrawString":http://tronche.com/gui/x/xlib/graphics/drawing-text/XDrawString.html.
+XTextWidth and other XText functions also will be helpful. Xutf8 versions can draw utf8-encoded text.
+
+bc.    XDrawString ( display,
+    drawable,
+    gc,
+    x, y,
+    text.c_str(),
+    text.length()
+    );
+
+
+Again, for receiving URL parameter we use html entities:
+
+@<embed type="application/simple-plugin" color="0x00aa00" height=500 width=500 url = "test.txt" />@
+
+Create our test.txt and we're done:
+
+
+h2. Step 3. Print list of links in the current document
+
+First you need to get the URL containing plugin. It is ridiculous, there is no trivial way to do that. See "Getting_the_page_URL_in_NPAPI_plugin":https://developer.mozilla.org/en/Getting_the_page_URL_in_NPAPI_plugin.
+
+h2. Step 4. Scroll list of links on user input
+
+!http://dl.dropbox.com/u/4217195/vanuan.heroku.com/post_43_NPAPI_2.png!
+
+
+h2. Resources
+
+* "Xlib XEvent":https://developer.mozilla.org/en/NPEvent
+* "XGraphicsExposeEvent":http://www.x.org/archive/X11R6.8.0/doc/XGraphicsExposeEvent.3.html
+* "XFillRectangle":http://www.x.org/archive/X11R6.8.0/doc/XFillRectangle.3.html
+* "Rob Tougher. Xlib Programming in C++":http://linuxgazette.net/issue78/tougher.html
+* "X11 Hello world program":ftp://ftp.funet.fi/pub/unix/security/docs/usenix/usenix/winter88/x-helloworld.ps.gz

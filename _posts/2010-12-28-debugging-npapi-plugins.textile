@@ -1,0 +1,14 @@
+---
+layout: default
+published: true
+title: Debugging NPAPI plugins
+---
+
+To debug plugins in Firefox just run firefox debugging as usual:
+
+    @firefox -g -d gdb@
+
+To debug plugins in Chrome:
+
+    @google-chrome --plugin-launcher='gdb --args'@
+

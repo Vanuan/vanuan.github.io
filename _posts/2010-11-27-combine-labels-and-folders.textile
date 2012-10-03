@@ -1,0 +1,15 @@
+---
+layout: default
+published: true
+title: Combine labels and folders
+---
+
+Mixing labels and folders use case.
+
+* User can choose labels or hierarchical view
+* User can choose view as label or view as folder
+* User can choose label and show all items with that label
+* User can choose folder and show only items in that folder
+* User can choose show root items
+* User can choose show unlabeled items
+

@@ -1,0 +1,40 @@
+---
+layout: default
+published: true
+title: C++ delete and NULL
+---
+
+Странно, что delete лишь вызывает деструктор и освобождает память, но не изменяет указатель.
+
+bc.. #include <iostream>
+using namespace std;
+
+class Test {
+public:
+   Test() {cout << "constructor" << endl;}
+   ~Test() {cout << "destructor" << endl;}
+};
+
+int main(int argc, char*argv[]) {
+  Test * test = new Test;
+  cout << test << endl;
+  delete test;
+  cout << test << endl;
+  return 0;
+}
+
+p. Результат:
+
+bc. constructor
+0x95f5008
+destructor
+0x95f5008
+
+Почему delete не обнуляет указатель?
+Это избавило бы программиста от проблемы двойного освобождения памяти.
+
+delete, однако, проверяет указатель на NULL перед вызовом деструктора.
+
+"SO Q&A":http://stackoverflow.com/questions/704466/why-doesnt-delete-set-the-pointer-to-null
+
+Ок, производительность, вот ответ.

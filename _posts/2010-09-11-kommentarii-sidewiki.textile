@@ -1,0 +1,9 @@
+---
+layout: default
+published: true
+title: Комментарии. Sidewiki?
+---
+
+What is sidewiki? Is it commenting engine for general discussion or just comments about this technology?
+
+Ok, there is API: http://code.google.com/apis/sidewiki/

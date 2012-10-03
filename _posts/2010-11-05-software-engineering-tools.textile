@@ -1,0 +1,70 @@
+---
+layout: default
+published: true
+title: Software engineering tools
+---
+
+* Software Requirements Tools
+* Compilers
+* Static analysis tools
+* IDE
+* Build tools
+* Source control tools
+* Testing tools
+* Documentation tools
+
+h2. Software Requirements Tools
+
+* DOORS
+
+h2. Software Construction tools
+
+h3. Compilers
+* MinGW / Cygwin / g++
+* VC++ 6.0 ("known issues":http://www.acceleratedcpp.com/details/msbugs.html)
+
+h3. IDE
+* Visual C++ 6
+* Eclipse / MoCCA IDE
+
+
+h2. Software quality tools
+
+h3. Review tools
+
+h3. Static analysis
+* PC-lint / Flexelint
+
+h2. Software Testing Tools
+
+* CppUnit
+* Google C++ testing framework
+* Internal testing tools
+
+h2. Software Configuration Management tools
+
+h3. Version management tools
+
+* git
+* cvs
+* svn
+* perforce
+
+h3. Issue trackers
+
+* JIRA
+* Internal issue tracker tools
+* Redmine
+* Github
+
+h3. Release and build tools
+
+* Make
+* Perforce Jam
+* Eclipse CDT managed build system
+
+
+h2. Documentation tools
+
+* Doxygen
+* XMLMind XML Editor

@@ -1,0 +1,25 @@
+---
+layout: default
+published: true
+title: Hide the window decorations for firefox and opera
+---
+
+I've found a way to hide window decorations in metacity for Opera and Firefox:
+
+* install devilspie
+* create files opera.ds and firefox.ds in your ~/.devilspie directory with the following content:
+
+bc. (if (is (application_name) "Firefox") and (contains (window_name) "Mozilla Firefox")
+             (begin
+                (undecorate)
+             )
+)
+
+bc. (if (is (application_name) "Opera") and (is (window_name) "Opera")
+             (begin
+                (undecorate)
+             )
+)
+
+* run devilspie and check if everything works
+* place devilspie in autostart

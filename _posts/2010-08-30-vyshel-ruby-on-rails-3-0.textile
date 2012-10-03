@@ -1,0 +1,9 @@
+---
+layout: default
+published: true
+title: Вышел Ruby On Rails 3.0
+---
+
+Уря! Я вовремя обновился!
+
+>>> "Новость на ЛОРе":http://www.linux.org.ru/news/opensource/5280643

@@ -1,0 +1,122 @@
+---
+layout: default
+published: true
+title: Installing Redmine and Rails3  
+---
+
+Clone Toshi MARUYAMA's Redmine repo https://github.com/marutosi/redmine.git
+
+Try to run redmine application:
+
+bc.    ./script/rails server
+
+If you see the following error:
+
+bc.    config/boot.rb:1:in `require': no such file to load -- rubygems (LoadError)
+
+install ruby1.9.1, delete any previous version.
+
+bc.    sudo apt-get install ruby1.9.1
+    sudo apt-get remove ruby1.8
+
+try again
+
+bc.    ./script/rails server
+
+If you see the following error:
+
+bc.    config/boot.rb:14:in `rescue in <top (required)>': uninitialized constant        Object::Bundler (NameError)
+
+You should install bundler
+
+bc.   sudo gem install bundler
+
+Now you'll end up with following error:
+
+bc.    Could not find gem 'rails (= 3.2.1) ruby' in any of the gem sources listed in your Gemfile.
+    Try running `bundle install`.
+
+Do like they said:
+
+bc.    bundle install
+
+Now you have this error:
+
+bc.    Installing json (1.6.5) with native extensions 
+    Gem::Installer::ExtensionBuildError: ERROR: Failed to build gem native extension.
+/usr/bin/ruby1.9.1 extconf.rb 
+<internal:lib/rubygems/custom_require>:29:in `require': no such file to load -- mkmf (LoadError)
+	from <internal:lib/rubygems/custom_require>:29:in `require'
+	from extconf.rb:1:in `<main>'
+
+Ok, gem was trying to build a native extension and failed. This is because ruby1.9.1-dev is not installed. Try now
+
+bc.    sudo apt-get install ruby1.9.1-dev
+
+And again
+
+bc.    bundle install
+
+Now we have another error:
+
+bc. Installing mysql (2.8.1) with native extensions 
+Gem::Installer::ExtensionBuildError: ERROR: Failed to build gem native extension.
+
+This is fixable by installing sudo libmysqlclient-dev:
+
+bc.    sudo apt-get install libmysqlclient-dev
+
+
+And again!
+
+bc.    bundle install
+
+Error again:
+
+bc.    Installing pg (0.9.0) with native extensions 
+    Gem::Installer::ExtensionBuildError: ERROR: Failed to build gem native extension.
+
+
+We are losing patience now. Fix by installing  libpq-dev
+
+bc.    sudo apt-get install libpq-dev
+
+At last!
+
+
+bc.    Your bundle is complete! Use `bundle show [gemname]` to see where a bundled gem is installed.
+
+Try running again:
+
+bc.    ./script/rails server
+
+Complains about missing config/database.yml
+
+Setup your database
+
+bc.     cp config/database.yml.example config/database.yml
+
+My file looks like this:
+
+bc.    production:
+      adapter: sqlite3
+      database: db/redmine.sqlite3
+
+Run server:
+
+bc.     ./script/rails server
+
+Now server runs but opening redmine in browser shows Could not find table 'settings'
+This is because we didn't initialize our database yet.
+
+Initialize the database:
+
+bc.    rake db:migrate
+
+Now when we start again
+
+bc.     ./script/rails server
+
+we'll see redmine index page.
+
+Login with admin/admin and you're done.
