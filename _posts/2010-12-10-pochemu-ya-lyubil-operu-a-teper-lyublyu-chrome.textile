@@ -1,6 +1,6 @@
 ---
 layout: default
-published: true
+published: false
 title: Почему я любил Оперу, а теперь люблю Chrome
 ---
 
