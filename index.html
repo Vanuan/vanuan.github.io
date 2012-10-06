@@ -19,17 +19,39 @@ layout: default
   {% endfor %}
 
 <!-- Pagination links -->
-<div class="pagination">
+<div id="post-pagination" class="pagination">
+
   {% if paginator.previous_page %}
-    <a href="/page{{paginator.previous_page}}" class="previous">Previous</a>
+    {% if paginator.previous_page == 1 %}
+      <a class="previous_page" href="/">← Previous</a>
+    {% else %}
+      <a class="previous_page" href="/page{{paginator.previous_page}}">← Previous</a>
+    {% endif %}
   {% else %}
-    <span class="previous">Previous</span>
+    <span class="previous_page disabled">← Previous</span>
   {% endif %}
-  <span class="page_number ">Page: {{paginator.page}} of {{paginator.total_pages}}</span>
+
+  {% if paginator.page == 1 %}
+    <em>1</em>
+  {% else %}
+    <a href="/">1</a>
+  {% endif %}
+
+  {% for count in (2..paginator.total_pages) %}
+    {% if count == paginator.page %}
+      <em>{{count}}</em>
+    {% else %}
+      <a href="/page{{count}}">{{count}}</a>
+    {% endif %}
+  {% endfor %}
+
   {% if paginator.next_page %}
-    <a href="/page{{paginator.next_page}}" class="next ">Next</a>
+    <a class="next_page" href="/page{{paginator.next_page}}">Next →</a>
   {% else %}
-    <span class="next ">Next</span>
+    <span class="next_page disabled">
+      Next →
+    </span>
   {% endif %}
+
 </div>
 
