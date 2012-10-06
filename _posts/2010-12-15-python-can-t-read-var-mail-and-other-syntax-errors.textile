@@ -1,7 +1,7 @@
 ---
 layout: default
 published: true
-title: Python: can't read /var/mail/ and other syntax errors
+title: "Python: can't read /var/mail/ and other syntax errors"
 ---
 
 This problem occurs when you try execute python script without specifying script type.
