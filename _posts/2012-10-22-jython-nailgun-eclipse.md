@@ -1,0 +1,17 @@
+---
+layout: default
+published: false
+---
+
+# Jython startup time, nailgun and eclipse
+
+Being frustrated about Jython startup time that forced me to run unittest rarely, I decided to investigate ways to improve it.
+
+Unfortunately, there is not much to do about it: http://stackoverflow.com/questions/1467827/how-do-i-make-pydev-jython-to-startup-faster-when-running-a-script
+http://bugs.jython.org/issue1380
+
+The suggestion is to run JVM once and reuse that instance.
+
+The project to do that is Nailgun: http://www.martiansoftware.com/nailgun/background.html
+
+So I decided to extend PyDev with the ability to use Nailgun.
