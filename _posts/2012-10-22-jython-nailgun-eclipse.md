@@ -15,3 +15,8 @@ The suggestion is to run JVM once and reuse that instance.
 The project to do that is Nailgun: http://www.martiansoftware.com/nailgun/background.html
 
 So I decided to extend PyDev with the ability to use Nailgun.
+
+Issues i encountered:
+
+	* module (not) reloading
+    * ValueError: ('unsupported operand type', op) when using re.compile
