@@ -22,4 +22,7 @@ Issues I've encountered:
 * ValueError: ('unsupported operand type', op) when using re.compile
 * * Never reload sre_constants module!
 
-TODO: reload only changed
+TODO:
+
+* reload only changed
+* recursive reloading: http://www.indelible.org/ink/python-reloading/
