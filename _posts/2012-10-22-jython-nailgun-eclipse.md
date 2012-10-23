@@ -20,3 +20,4 @@ Issues I've encountered:
 
 * module (not) reloading
 * ValueError: ('unsupported operand type', op) when using re.compile
+* * Never reload sre_constants module!
