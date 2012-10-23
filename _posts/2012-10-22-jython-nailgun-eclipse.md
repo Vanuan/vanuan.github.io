@@ -16,7 +16,7 @@ The project to do that is Nailgun: http://www.martiansoftware.com/nailgun/backgr
 
 So I decided to extend PyDev with the ability to use Nailgun.
 
-Issues i encountered:
+Issues I've encountered:
 
-	* module (not) reloading
-    * ValueError: ('unsupported operand type', op) when using re.compile
+* module (not) reloading
+* ValueError: ('unsupported operand type', op) when using re.compile
