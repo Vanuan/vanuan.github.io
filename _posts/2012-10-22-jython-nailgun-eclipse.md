@@ -28,3 +28,4 @@ TODO:
 * recursive reloading: http://www.indelible.org/ink/python-reloading/
 * start nailgun server by pydev
 * embed nailgun binaries to pydev
+* deal with debugging in some way
