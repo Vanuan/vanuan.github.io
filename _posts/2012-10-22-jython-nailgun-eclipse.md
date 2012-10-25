@@ -24,7 +24,7 @@ Issues I've encountered:
 
 TODO:
 
-* reload only changed
+* reload only changed (hook on save action)
 * recursive reloading: http://www.indelible.org/ink/python-reloading/
 * start nailgun server by pydev (restart on demand)
 * embed nailgun binaries to pydev
