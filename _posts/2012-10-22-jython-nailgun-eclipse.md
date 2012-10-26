@@ -24,8 +24,9 @@ Issues I've encountered:
 
 TODO:
 
-* reload only changed (hook on save action, make hook on import, save modified timestamp )
+* DONE: reload only changed (hook on save action, make hook on import, save modified timestamp )
 * recursive reloading: http://www.indelible.org/ink/python-reloading/
 * start nailgun server by pydev (restart on demand)
 * embed nailgun binaries to pydev
 * deal with debugging in some way
+* Jython cwd and arguments should be forcefully reinitialized!
