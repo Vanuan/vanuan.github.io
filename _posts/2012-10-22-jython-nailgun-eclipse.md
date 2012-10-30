@@ -52,6 +52,8 @@ or you can use the `-c` option for inline scripts:
 
 https://github.com/Vanuan/module_reloader
 
+Better solution: http://pyunit.sourceforge.net/notes/reloading.html
+
 An option to call reloader script was added to Eclipse.
 
 
@@ -80,6 +82,7 @@ Still I need to
 TODO:
 
 * recursive reloading: http://www.indelible.org/ink/python-reloading/
+  * http://pyunit.sourceforge.net/notes/reloading.html
   * Unload module when file is deleted
   * Unload module when import is commented out
 * start nailgun server by pydev (restart on demand)
