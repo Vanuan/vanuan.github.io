@@ -48,9 +48,11 @@ or you can use the `-c` option for inline scripts:
 * module (not) reloading
 * DONE: reload only changed (hook on save action, make hook on import, save modified timestamp )
 * ValueError: ('unsupported operand type', op) when using re.compile
-* * Never reload sre_constants module!
+  * Never reload sre_constants module!
 
 https://github.com/Vanuan/module_reloader
+
+An option to call reloader script was added to Eclipse.
 
 
 ### Environment, current working directory and arguments.
@@ -66,6 +68,8 @@ We need to keep modules loaded just once, but update these:
 
 * Jython cwd and arguments should be forcefully reinitialized!
 
+TODO: jython reloader, option to Eclipse
+
 
 ## The result
 
@@ -76,7 +80,8 @@ Still I need to
 TODO:
 
 * recursive reloading: http://www.indelible.org/ink/python-reloading/
+  * Unload module when file is deleted
+  * Unload module when import is commented out
 * start nailgun server by pydev (restart on demand)
 * embed nailgun binaries to pydev
 * deal with debugging in some way
-* Unload module when file is deleted
