@@ -67,6 +67,8 @@ TODO:
   * http://pyunit.sourceforge.net/notes/reloading.html
   * Unload module when file is deleted
   * Unload module when import is commented out
+  * Run as Jython unit-test won't work
+
 
 
 
