@@ -26,6 +26,11 @@ The plan is to:
 
 Since nailgun server should be started only once, I can do it manually for now. Or add it to autostart.
 
+TODO:
+
+* start nailgun server by pydev (restart on demand)
+
+
 ### PYTHONPATH
 
 First I need to provide a proper PYTHONPATH environment variable. Since in Jython PYTHONPATH contains classpath, I can just setup class path. To do that Nailgun provides ng-cp class:
@@ -56,6 +61,14 @@ Better solution: http://pyunit.sourceforge.net/notes/reloading.html
 
 An option to call reloader script was added to Eclipse.
 
+TODO:
+
+* recursive reloading: http://www.indelible.org/ink/python-reloading/
+  * http://pyunit.sourceforge.net/notes/reloading.html
+  * Unload module when file is deleted
+  * Unload module when import is commented out
+
+
 
 ### Environment, current working directory and arguments.
 
@@ -79,12 +92,5 @@ TODO: jython reloader, option to Eclipse
 
 Still I need to 
 
-TODO:
-
-* recursive reloading: http://www.indelible.org/ink/python-reloading/
-  * http://pyunit.sourceforge.net/notes/reloading.html
-  * Unload module when file is deleted
-  * Unload module when import is commented out
-* start nailgun server by pydev (restart on demand)
 * embed nailgun binaries to pydev
 * deal with debugging in some way
