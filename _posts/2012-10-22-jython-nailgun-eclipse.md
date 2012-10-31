@@ -92,7 +92,7 @@ TODO: jython reloader, option to Eclipse
 
 ## Known limitations and TODOs
 
-File not found - /opt/jython/jython-2.5.3/Lib/site.py (Too many open files)
+File not found - /opt/jython/jython-2.5.3/Lib/site.py (Too many open files) fixed. (close file after find_module)
 
 Still I need to 
 
