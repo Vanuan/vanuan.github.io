@@ -124,3 +124,4 @@ Still I need to
 
 * embed nailgun binaries to pydev
 * deal with debugging in some way
+* impossible to stop script
