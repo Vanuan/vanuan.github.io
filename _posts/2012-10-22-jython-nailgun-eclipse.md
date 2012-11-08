@@ -63,28 +63,23 @@ There are two approaches to make module be reloaded:
 
 I've choosen the second one, since it's more obvious and simple.
 
-It is not enough to just reload one module. You must also remove all the references to it from the other modules. E.g. if you have such two modules:
+It is not enough to just reload one module. You must also reload all its dependants.
+E.g. if you have such two modules:
 
     # dependency.py
     name = __name__
     
     
     # dependant.py
-    import dependency
+    from dependency import name
     
-    def getDependencyName():
-        return dependency.name
+And you change `dependency.name`, you must reload not only the dependency, but also the dependant.
 
+To do that we'll build the dependency tree.
 
-And you reload dependency in the main script (to restore):
+Since we want to reload only changed modules, we should save modules timestamps.
 
-    import dependant
-    reload(sys.modules['dependency'])
-    print dependant.getDependencyName()
-
-
-* module (not) reloading
-* DONE: reload only changed (hook on save action, make hook on import, save modified timestamp )
+* (hook on save action, make hook on import, save modified timestamp )
 * ValueError: ('unsupported operand type', op) when using re.compile
   * Never reload sre_constants module!
 
