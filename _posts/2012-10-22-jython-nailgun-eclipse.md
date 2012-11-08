@@ -63,19 +63,24 @@ There are two approaches to make module be reloaded:
 
 I've choosen the second one, since it's more obvious and simple.
 
-It is not enough to just reload one module. You must also remove all the references to it from the other modules. E.g. you have such two modules:
+It is not enough to just reload one module. You must also remove all the references to it from the other modules. E.g. if you have such two modules:
 
     # dependency.py
-    print __name__
+    name = __name__
+    
     
     # dependant.py
     import dependency
+    
+    def getDependencyName():
+        return dependency.name
 
-And the main script:
+
+And you reload dependency in the main script (to restore):
 
     import dependant
-    reload(dependant)
-    
+    reload(sys.modules['dependency'])
+    print dependant.getDependencyName()
 
 
 * module (not) reloading
