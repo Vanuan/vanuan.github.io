@@ -18,18 +18,18 @@ The suggestion is to run JVM once and reuse that instance. [Nailgun](http://www.
 
 After reading [developer instructions](http://www.pydev.org/developers.html) I went ahead and forked the [Pydev repository](https://github.com/Vanuan/Pydev). After importing eclipse projects into a new workspace, adding some breakpoints and running Eclipse in the debug mode I found a place where Jython's command line is constructed: it is a `getCommandLine` method of `org.python.pydev.debug.ui.launching.PythonRunnerConfig`.
 
-The plan is to:
+The plan has emerged:
 
 * Run nailgun server
 * Setup classpath
 * Run the script
 
-Since nailgun server should be started only once, I can do it manually for now. Or add it to autostart.
+Since nailgun server should be started only once, I can do it manually for now.
 
 TODO:
 
 * start nailgun server by pydev (restart on demand)
-
+* stop: ng-stop
 
 ### PYTHONPATH
 
@@ -49,6 +49,34 @@ or you can use the `-c` option for inline scripts:
 
 ### Module reloading
 
+Now our script run pretty fast. But the problem is that imported modules are not reloaded when you change them. I.e. if a module is already in `sys.modules`, `import` does nothing.
+
+There are a few articles that attempt to solve this problem:
+
+* http://pyunit.sourceforge.net/notes/reloading.html
+* http://www.indelible.org/ink/python-reloading/
+
+There are two approaches to make module be reloaded:
+
+* delete it from `sys.modules` and wait for the next import
+* use the built-in function `reload`.
+
+I've choosen the second one, since it's more obvious and simple.
+
+It is not enough to just reload one module. You must also remove all the references to it from the other modules. E.g. you have such two modules:
+
+    # dependency.py
+    print __name__
+    
+    # dependant.py
+    import dependency
+
+And the main script:
+
+    import dependant
+    reload(dependant)
+    
+
 
 * module (not) reloading
 * DONE: reload only changed (hook on save action, make hook on import, save modified timestamp )
@@ -57,14 +85,11 @@ or you can use the `-c` option for inline scripts:
 
 https://github.com/Vanuan/module_reloader
 
-Better solution: http://pyunit.sourceforge.net/notes/reloading.html
 
 An option to call reloader script was added to Eclipse.
 
 TODO:
 
-* recursive reloading: http://www.indelible.org/ink/python-reloading/
-  * http://pyunit.sourceforge.net/notes/reloading.html
   * Unload module when file is deleted
   * Unload module when import is commented out
   * Run as Jython unit-test won't work
