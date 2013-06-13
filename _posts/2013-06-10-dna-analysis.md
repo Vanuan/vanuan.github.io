@@ -24,11 +24,15 @@ There are a lot of people who decided to publich their raw 23andme data:
 * https://github.com/jasongill/dna
 * https://github.com/kennethreitz/genome
 
+Even more are listed on [SNPedia](http://www.snpedia.com/index.php/Genomes) and [opensnp](http://opensnp.org/).
+
 Read Manu Sporny's [blog post](http://manu.sporny.org/2011/public-domain-genome/).
 
 Unfortunately, the SNP data itself means nothing without phenotypes and conditions.
 
 Fortunately, there is an [initiative](http://www.nature.com/news/geneticists-push-for-global-data-sharing-1.13133) to create exactly that &mdash; the large database of genetic information with relation to clinical information.
+
+For now, the most complete database of SNP linkage with medical conditions is [SNPedia](http://www.snpedia.com/index.php/SNPedia).
 
 ## Analysis tools
 
