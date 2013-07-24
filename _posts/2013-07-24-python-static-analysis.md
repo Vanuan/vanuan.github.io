@@ -4,6 +4,8 @@ published: false
 
 ## Python static analysis
 
+
+
 ### AST.Attribute
 
     Attribute(expr value, identifier attr, expr_context ctx)
@@ -34,7 +36,16 @@ labelloc="t";
     }
 ]]></script>
 
-Attribute context
+So, how would we implement semantics of this?
+
+First, we rewind to the first non-attribute node, while saving attribute names
+on the stack. Then we infer this node into an object.
+Then we move forward using attribute names from the stack.
+If the attribute doesn't exist we should check the context
+and, if it is "Store", create a reference to a newly created attribute.
+
+
+#### Attribute context
 
     a.b # Load
     a.b = 1 # Store
