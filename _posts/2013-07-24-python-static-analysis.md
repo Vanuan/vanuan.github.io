@@ -23,3 +23,4 @@ Attribute context
 * http://yinwang0.wordpress.com/2010/09/12/pysonar/
 * https://github.com/yinwang0/mini-pysonar
 * http://docs.python.org/devguide/compiler.html
+* [Static analysis of dynamic scripting languages](http://paulbiggar.com/research/wip-optimizer.pdf)
