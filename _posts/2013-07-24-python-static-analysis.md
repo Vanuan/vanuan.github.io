@@ -9,6 +9,31 @@ published: false
     Attribute(expr value, identifier attr, expr_context ctx)
     expr_context = Load | Store | Del | AugLoad | AugStore | Param
 
+Let's look what AST would be produced for an "a.b.c" expression:
+
+<script type="gviz" data-layout="dot"><![CDATA[
+digraph G {
+labelloc="t";
+        label="AST tree of 'a.b.c' expression";
+        // General Settings
+        graph [
+            truecolor=true
+            bgcolor="#FFFFFF00"
+            fontname = "Ubuntu"
+        ];
+        node [
+            shape=box
+            style="filled"
+            fillcolor="#FFFFFF"
+        ];
+        attr1 [label="Attribute 'c'"];
+        attr2 [label="Attribute 'b'"];
+        name [label="Name 'a'"];
+        attr1 -> attr2 [label="value"];
+        attr2 -> name [label="value"];
+    }
+]]></script>
+
 Attribute context
 
     a.b # Load
