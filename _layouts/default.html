@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
   <title>
     {% if page.title %}{{ page.title }} &ndash; {% endif %}{{ site.title }}
   </title>
   <script type="text/javascript" src="http://gviz.oodavid.com/gviz.js"></script>
-  <link rel="stylesheet" type="text/css" href="/stylesheets/my.css" media="screen" />
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+ 
+  <!--link rel="stylesheet" type="text/css" href="/stylesheets/my.css" media="screen" /-->
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-18508692-1']);
@@ -21,7 +24,8 @@
     </script>
 </head>
 <body>
-
+ <script src="http://code.jquery.com/jquery.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 <div id="header">
   <h1><span id="title"><a href="{{site.url}}">{{site.title}}</a></span></h1>
   <span id="promo">
