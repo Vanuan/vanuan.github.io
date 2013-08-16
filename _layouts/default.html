@@ -32,36 +32,43 @@
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
-<div class="container">
-  <a class="brand" href="{{site.url}}">{{site.title}}</a>
-  <span class="slogan">Sufficiently incompetent coders can write FORTRAN in any language. Sufficiently talented coders can write great applications in terrible languages</span>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <a class="brand" href="{{site.url}}">{{site.title}}</a>
+      <span class="slogan">Sufficiently incompetent coders can write FORTRAN in any language. Sufficiently talented coders can write great applications in terrible languages</span>
+    </div>
+    <div class="span6">
+
+      {% if page.title %}
+      <h1>{{ page.title }}</h1>
+      {% endif %}
+      
+      {{ content }}
+      
+      <hr/>
+
+      <div id="talkatv-comments"></div>
+      <script>
+        var talkatv_home = 'http://talka.tv';
+        // use /talkatv.js instead of /static/js...
+        var talkatv_shortcut = true;
+        script = document.createElement('script');
+        script.src = talkatv_home + (talkatv_shortcut ? '/talkatv.js' : '/static/js/talkatv.js');
+        script.type = 'text/javascript';
+        
+        document.body.appendChild(script);
+      </script>
+      
+    </div>
+    
+    <div class="span2">
+    </div>
+    
+  </div>
 </div>
-
-<div class="container">
-<p style="color: green"></p>
-{% if page.title %}
-<h1>{{ page.title }}</h1>
-{% endif %}
-
-  {{ content }}
-
-  <hr/>
-
-  <div id="talkatv-comments"></div>
-  <script>
-    var talkatv_home = 'http://talka.tv';
-    // use /talkatv.js instead of /static/js...
-    var talkatv_shortcut = true;
-
-    script = document.createElement('script');
-    script.src = talkatv_home + (talkatv_shortcut ? '/talkatv.js' : '/static/js/talkatv.js');
-    script.type = 'text/javascript';
-
-    document.body.appendChild(script);
-  </script>
   
-</div>
-
+  
 
 </body>
 </html>
