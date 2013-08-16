@@ -47,7 +47,22 @@ Sufficiently talented coders can write great applications in terrible languages.
 {% if page.title %}
 <h1>{{ page.title }}</h1>
 {% endif %}
+
   {{ content }}
+
+  <div id="talkatv-comments"></div>
+  <script>
+    var talkatv_home = 'http://talka.tv';
+    // use /talkatv.js instead of /static/js...
+    var talkatv_shortcut = true;
+
+    script = document.createElement('script');
+    script.src = talkatv_home + (talkatv_shortcut ? '/talkatv.js' : '/static/js/talkatv.js');
+    script.type = 'text/javascript';
+
+    document.body.appendChild(script);
+  </script>
+  
 </div>
 
 
