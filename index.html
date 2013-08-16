@@ -3,17 +3,19 @@ layout: default
 published: true
 ---
 
+<ul>
 {% for post in paginator.posts %}
  
   {% if post.published %}
-  <h2><a href="{{post.url}}">{{ post.title }}</a>
-      <span class="time"><time>
-        {{ post.date | date: "%Y-%m-%d" }}
-        </time></span>
-  </h2>
+  <li><a href="{{post.url}}">{{ post.title }}</a>
+    <span class="badge badge-success">
+      Posted {{ post.date | date: "%Y-%m-%d" }}
+    </span>
+  </li>
   {% endif %}
   
 {% endfor %}
+</ul>
 
 <!-- Pagination links -->
 <div id="post-pagination" class="pagination">
