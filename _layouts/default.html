@@ -42,11 +42,12 @@
 
       {% if page.title %}
       <h1>{{ page.title }}</h1>
-      <span class="badge badge-success">
-          Posted {{ page.date | date: "%Y-%m-%d" }}
-      </span>      
       {% endif %}
       {{ content }}
+
+      <span class="badge">
+          {{ page.date | date: "%Y-%m-%d" }}
+      </span>      
       
       <hr/>
       <h4>Comments:</h4>
