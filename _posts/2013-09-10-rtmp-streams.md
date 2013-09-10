@@ -1,5 +1,6 @@
 ---
 published: true
+layout: default
 ---
 
 ## Watching RTMP streams in VLC
