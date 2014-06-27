@@ -1,4 +1,33 @@
-## Projects
+# Projects
+
+## Commercial projects
+
+### 2012-2014 UCMDB DDM Content
+
+Technologies:
+
+* Jython
+* Python
+
+Team: 9 people
+
+Role: bug fixing, implemented few features
+
+### 2010-2012 Office plugins for embedded browser
+
+Description: PDF, DOC, XLS, PPT NPAPI-plugins
+
+Technologies:
+
+* C++, STL
+* POSIX (QNX, Linux)
+* NPAPI
+* xpdf and other C++ libraries
+
+Team: 4 people
+
+Role: implemented PDF plugin, fixed bugs in Office plugin
+
 
 ### 2008-2010 Rotor balancing machine
 
@@ -16,31 +45,8 @@ Team: 2 people
 
 Role: lead developer
 
-### 2010-2012 Office plugins for embedded browser
 
-Description: PDF, DOC, XLS, PPT NPAPI-plugins
-
-Technologies:
-
-* C++, STL
-* POSIX (QNX, Linux)
-* NPAPI
-* xpdf and other C++ libraries
-
-Team: 4 people
-
-Role: implemented PDF plugin, fixed bugs in Office plugin
-
-### 2012-2014 UCMDB DDM Content
-
-Technologies:
-
-* Jython
-* Python
-
-Team: 9 people
-
-Role: bug fixing, implemented few features
+## Open Source hobby projects
 
 ### 2013 HP-ALM WebUI (one month project)
 
