@@ -11,7 +11,7 @@ Technologies:
 
 Team: 9 people
 
-Role: bug fixing, implemented few features
+Role: bug fixing, implemented few features, communication with a customer
 
 ### 2010-2012 Office plugins for embedded browser
 
