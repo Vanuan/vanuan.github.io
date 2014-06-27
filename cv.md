@@ -59,7 +59,8 @@ Team: 2 people / myself
 
 Achievements:
 
-* Implemented a complete system that controls a dynamic balancing machine
+* Developed Software Requirements Specification document to better understand customer needs
+* Implemented a complete system that controls a dynamic balancing machine that is used to rebalance rotors
 
 
 ## Open Source hobby projects
