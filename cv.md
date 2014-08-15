@@ -1,68 +1,5 @@
 # Projects
 
-## Commercial projects
-
-### 2012-2014 UCMDB DDM Content
-
-Description:
-
-Enterprise IT infrastructure dependency mapping system that helps administrators to see dependencies and characteristics of various parts of computer infrustructure.
-
-Technologies:
-
-* Jython
-* Python
-
-Team: 9 people
-
-Achievements:
-
-* Developed different modules allowing to discover more configuration items for customer (IPv6, Red Hat, SAP, Windows 2012)
-* Investigated an issue and proposed a solution that streamlines developer experience (python module reloading mechanism)
-* Implemented a script that reports configuration items the product supports to reduce manual collection and to help sales to advertise the product to customers
-
-
-### 2010-2012 Office plugins for embedded browser
-
-Description: PDF, DOC, XLS, PPT NPAPI-plugins, EWS library
-
-Technologies:
-
-* C++, STL
-* POSIX (QNX, Linux)
-* NPAPI
-* xpdf and other C++ libraries
-
-Team: 4 people
-
-Achievements:
-
-* Implemented a core part of PDF-viewing plugin that is used to view PDF-documents in the car infotainment system
-* Improved appearance and quality of Office document viewing plugins
-* Improved quality of Exchange Web Services library that is used in the product that delivers MS e-mail services into the car infotainment system
-* Introduced Hudson/Jenkins CI to the team to improve quality and better detect bugs
-
-
-### 2008-2010 Rotor balancing machine
-
-Description: Embedded software for rotor balancing machine
-
-Technologies:
-
-* AVR Assembler
-* C++
-* Qt
-* Sqlite
-* Linux
-
-Team: 2 people / myself
-
-Achievements:
-
-* Developed Software Requirements Specification document to better understand customer needs
-* Implemented a complete system that controls a dynamic balancing machine that is used to rebalance rotors
-
-
 ## Open Source hobby projects
 
 ### 2013 HP-ALM WebUI (one month project)
@@ -138,4 +75,69 @@ Team: opensource project
 Role: implemented several features
 
 Link: https://github.com/gugod/redmine-gollum
+
+
+
+## Commercial projects
+
+### 2012-2014 UCMDB DDM Content
+
+Description:
+
+Enterprise IT infrastructure dependency mapping system that helps administrators to see dependencies and characteristics of various parts of computer infrustructure.
+
+Technologies:
+
+* Jython
+* Python
+
+Team: 9 people
+
+Achievements:
+
+* Developed different modules allowing to discover more configuration items for customer (IPv6, Red Hat, SAP, Windows 2012)
+* Investigated an issue and proposed a solution that streamlines developer experience (python module reloading mechanism)
+* Implemented a script that reports configuration items the product supports to reduce manual collection and to help sales to advertise the product to customers
+
+
+### 2010-2012 Office plugins for embedded browser
+
+Description: PDF, DOC, XLS, PPT NPAPI-plugins, EWS library
+
+Technologies:
+
+* C++, STL
+* POSIX (QNX, Linux)
+* NPAPI
+* xpdf and other C++ libraries
+
+Team: 4 people
+
+Achievements:
+
+* Implemented a core part of PDF-viewing plugin that is used to view PDF-documents in the car infotainment system
+* Improved appearance and quality of Office document viewing plugins
+* Improved quality of Exchange Web Services library that is used in the product that delivers MS e-mail services into the car infotainment system
+* Introduced Hudson/Jenkins CI to the team to improve quality and better detect bugs
+
+
+### 2008-2010 Rotor balancing machine
+
+Description: Embedded software for rotor balancing machine
+
+Technologies:
+
+* AVR Assembler
+* C++
+* Qt
+* Sqlite
+* Linux
+
+Team: 2 people / myself
+
+Achievements:
+
+* Developed Software Requirements Specification document to better understand customer needs
+* Implemented a complete system that controls a dynamic balancing machine that is used to rebalance rotors
+
 
