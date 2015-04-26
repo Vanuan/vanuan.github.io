@@ -5,7 +5,6 @@ published: true
 
 <ul>
 {% for post in paginator.posts %}
- 
   {% if post.published %}
   <li><a href="{{post.url}}">{{ post.title }}</a>
     <span class="badge badge-success">
