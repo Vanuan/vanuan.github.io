@@ -1,0 +1,47 @@
+---
+interface Props {
+    categories: string[];
+}
+
+const { categories } = Astro.props;
+---
+
+<div class="flex flex-wrap gap-2 mb-4">
+    {
+        categories.map((category) => (
+            <button
+                class="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 py-1 px-3 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring focus:ring-blue-300"
+                data-category={category}
+            >
+                {category}
+            </button>
+        ))
+    }
+    <button
+        class="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 py-1 px-3 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring focus:ring-blue-300"
+        data-category="all">All</button
+    >
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const filterButtons = document.querySelectorAll("[data-category]");
+        const projectCards = document.querySelectorAll(".project-card");
+
+        filterButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const category = button.dataset.category;
+                projectCards.forEach((card) => {
+                    if (
+                        category === "all" ||
+                        card.dataset.category === card.dataset.category
+                    ) {
+                        card.style.display = "block";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+            });
+        });
+    });
+</script>

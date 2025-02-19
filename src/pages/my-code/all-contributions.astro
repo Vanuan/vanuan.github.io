@@ -1,0 +1,92 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import path from "node:path";
+import type { GitHubRepo } from "../../types";
+import PageHeader from "../../components/PageHeader.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import {
+    fetchGitHubData,
+    buildOrgRepoApiUrl,
+    buildUserRepoApiUrl,
+    cacheDir,
+} from "../../lib/github";
+import {
+    GITHUB_USERNAME,
+    GITHUB_ORGANIZATIONS,
+    GITHUB_OWNED_ORGANIZATIONS,
+} from "../../consts";
+
+const perPage = 100;
+
+const contributedOrganizations = GITHUB_ORGANIZATIONS.filter(
+    (org) => !GITHUB_OWNED_ORGANIZATIONS.includes(org),
+);
+
+// Fetch personal repos
+const personalApiUrl = buildUserRepoApiUrl(GITHUB_USERNAME, perPage);
+const personalCacheFile = path.join(
+    cacheDir,
+    "github-personal-repos-cache.json",
+);
+
+const personalRepos = (await fetchGitHubData({
+    apiUrl: personalApiUrl,
+    cacheFile: personalCacheFile,
+})) as GitHubRepo[];
+
+const forkedPersonalRepos = personalRepos.filter((repo) => repo.fork);
+
+// Fetch org repos
+const contributedOrgReposPromises = contributedOrganizations.map(
+    async (org) => {
+        const orgApiUrl = buildOrgRepoApiUrl(org, perPage);
+        const orgCacheFile = path.join(
+            cacheDir,
+            `github-org-${org}-repos-cache.json`,
+        );
+        return (await fetchGitHubData({
+            apiUrl: orgApiUrl,
+            cacheFile: orgCacheFile,
+        })) as GitHubRepo[];
+    },
+);
+
+const contributedOrgRepos = (
+    await Promise.all(contributedOrgReposPromises)
+).flat();
+
+const allContributions = [...forkedPersonalRepos, ...contributedOrgRepos];
+---
+
+<Layout
+    title="All Contributions | My Code | {SITE_TITLE}"
+    description="My contributions to open-source projects on GitHub."
+>
+    <Breadcrumbs
+        segments={[
+            { label: "My Code", path: "/my-code" },
+            { label: "All Contributions", path: "/my-code/all-contributions" },
+        ]}
+    />
+    <PageHeader
+        title="All Contributions"
+        description="My contributions to open-source projects on GitHub, including personal forks and repositories from organizations I contribute to."
+    />
+
+    <section class="py-10">
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {
+                allContributions.map((repo) => (
+                    <ProjectCard
+                        name={repo.name}
+                        description={repo.description}
+                        link={repo.html_url}
+                        owner={repo.owner?.login}
+                        source={repo.source?.owner?.login}
+                    />
+                ))
+            }
+        </div>
+    </section>
+</Layout>

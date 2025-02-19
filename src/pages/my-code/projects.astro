@@ -1,0 +1,147 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import CategoryFilter from "../../components/CategoryFilter.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro"; // Import the breadcrumbs
+
+const projects = [
+    {
+        category: "Software for Personal Use and Community Contribution",
+        name: "SweetHome3D (Archived)",
+        context:
+            "This was intended to be a fork when Git was starting to gain popularity, but the maintainer was still using SVNForge. My goal was to port the project to SWT, believing it was well-suited for supporting multiple GUI toolkits, aiming to expand its accessibility and usability.",
+        githubLink: "https://github.com/vanuan/sweethome3d",
+    },
+    {
+        category: "Software for Personal Use and Community Contribution",
+        name: "PocketBook Free Software Update",
+        context:
+            "Discovered PocketBook in 2011, attracted by its affordable, quality e-ink hardware. I explored the possibility of installing custom software but ultimately chose the Barnes & Noble Nook for its Android support, which offered easier book management through cloud services. This project never fully materialized due to my switch to more user-friendly devices.",
+        githubLink: "https://github.com/vanuan/pocketbook_free_swupdate",
+    },
+    {
+        category: "Data and Mapping",
+        name: "GPX to Road Map",
+        context:
+            "During my interest in open data, I stumbled upon a local government service that used GPS trackers on public transport without proper route identification. My project aimed to map these devices to routes, envisioning an app that could show real-time ETA for buses and trams. The research ended when the service was discontinued.",
+        githubLink: "https://github.com/vanuan/gpx_to_road_map",
+    },
+    {
+        category: "Document Processing",
+        name: "Unicodify PDF",
+        context:
+            "Motivated by my father's poetry book which lacked an electronic version, I found draft PDFs from the publisher. These were unreadable due to font compression issues. This tool successfully made the PDFs copyable and searchable, preserving my father's work in a digital form.",
+        githubLink: "https://github.com/vanuan/unicodify_pdf",
+    },
+    {
+        category: "Security and System Integration",
+        name: "Coolkey",
+        context:
+            "While at HP team in Lohika, we needed strict hardware-based security for network access. The authentication key storage device lacked full Linux support, forcing many to use Windows or Mac. Using my C++ expertise, I developed support for multi-slot key discovery, enhancing Linux compatibility for team members.",
+        githubLink: "https://github.com/vanuan/coolkey",
+    },
+    {
+        category: "Genealogy Tools",
+        name: "GEDCOM-Tree",
+        context:
+            "My interest in genealogy started with a school assignment and grew with my frustration over the lack of data portability between genealogy tools. Discovering GEDCOM as a standard, I aimed to create JavaScript libraries for parsing, though this was before such libraries were common. Now, I use FamilySearch for my genealogy needs.",
+        githubLink: "https://github.com/vanuan/gedcom-tree",
+    },
+    {
+        category: "Developer Tools",
+        name: "FreeCAD Python Stubs",
+        context:
+            "I have a complex relationship with FreeCAD due to its powerful parametric solver but chaotic codebase. This project was an attempt to introduce type safety into FreeCAD's Python scripts, but the vast API overwhelmed my efforts. My partial PR reflects my broader frustrations with C++ development environments and the slow adoption of C++ modules.",
+        githubLink: "https://github.com/vanuan/freecad-python-stubs",
+    },
+    {
+        category: "Developer Tools",
+        name: "Mini-Pysonar",
+        context:
+            "Part of the CMDB Universal Discovery team, I used Mini-Pysonar to analyze scripts for potential CI items discovery. Despite technical success, the results highlighted logical issues due to scripts running in varied environments, showing the limitations of static analysis in real-world applications.",
+        githubLink: "https://github.com/vanuan/mini-pysonar",
+    },
+    {
+        category: "Containerization and Database Management",
+        name: "RethinkDB on Alpine",
+        context:
+            "During an era focused on open data, I aimed to mirror Ukraine's open data portal using RethinkDB for its performance and ease of use. The project was abandoned after RethinkDB ceased operations, and I lacked the motivation to rewrite it for another database.",
+        githubLink: "https://github.com/vanuan/rethinkdb-alpine",
+    },
+    {
+        category: "Enterprise Software",
+        name: "HP ALM Web UI",
+        context:
+            "Around 2013-2014, I created a JavaScript UI with Angular to make HP ALM, our Windows-based issue tracker, more accessible on web platforms. This was partly successful until I learned that an 'HTML5' UI was already in development by the HP ALM team, validating my approach but rendering my work somewhat redundant.",
+        githubLink: "https://github.com/vanuan/hp-alm-web-ui",
+    },
+];
+
+const categories = [...new Set(projects.map((project) => project.category))];
+---
+
+<Layout
+    title="Projects | My Code | {SITE_TITLE}"
+    description="Vanya Yani's archived projects and former interests."
+>
+    <Breadcrumbs
+        segments={[
+            { label: "My Code", path: "/my-code" },
+            { label: "Projects", path: "/my-code/projects" },
+        ]}
+    />
+    <PageHeader
+        title="Former Interests and Archived Projects"
+        description="A collection of my past projects and interests."
+    />
+
+    <section class="py-10">
+        <h2 class="text-2xl font-semibold mb-4">Filter by Category</h2>
+        <CategoryFilter categories={categories} />
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" id="project-grid">
+            {
+                projects.map((project) => (
+                    <ProjectCard
+                        name={project.name}
+                        description={project.context}
+                        link={project.githubLink}
+                        category={project.category}
+                    />
+                ))
+            }
+        </div>
+    </section>
+
+    <section class="py-10">
+        <p class="text-xl text-gray-600 dark:text-gray-300">
+            This portfolio showcases a wide array of interests from software
+            development, open data advocacy, to personal projects driven by
+            family history or practical needs, illustrating a journey through
+            technology with both successes and learning experiences.
+        </p>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const filterButtons = document.querySelectorAll("[data-category]");
+            const projectCards = document.querySelectorAll(".project-card");
+            filterButtons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    const category = button.dataset.category;
+                    projectCards.forEach((card) => {
+                        if (
+                            category === "all" ||
+                            card.dataset.category === category
+                        ) {
+                            card.style.display = "block";
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</Layout>

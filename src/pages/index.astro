@@ -1,11 +1,77 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import BlogPostPreview from "../components/BlogPostPreview.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const posts = await getCollection("blog");
+const latestPosts = posts
+    .sort((a, b) => b.data.publishDate - a.data.publishDate)
+    .slice(0, 3);
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Home | Vanya Yani">
+    <section class="py-20">
+        <h1 class="text-5xl font-bold mb-4">Hello, I'm Vanya Yani</h1>
+        <p
+            class="text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed"
+        >
+            I'm a Senior Frontend Software Engineer passionate about building
+            scalable and user-friendly web applications. I specialize in React,
+            TypeScript, and modern frontend architectures, with a keen interest
+            in exploring the potential of AI in software development.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+            <a
+                href="/cv"
+                class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+                View My CV
+            </a>
+            <a
+                href="/portfolio"
+                class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+            >
+                Explore My Portfolio
+            </a>
+            <a
+                href="/my-code"
+                class="inline-block bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+            >
+                See My Code
+            </a>
+        </div>
+    </section>
+    <section class="py-10">
+        <h2 class="text-3xl font-bold mb-8">Latest Blog Posts</h2>
+        {
+            latestPosts.length > 0 ? (
+                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    {latestPosts.map((post) => (
+                        <BlogPostPreview
+                            title={post.data.title}
+                            description={post.data.description}
+                            publishDate={post.data.publishDate}
+                            slug={post.slug}
+                        />
+                    ))}
+                </div>
+            ) : (
+                <p class="text-gray-600 dark:text-gray-300">
+                    No blog posts yet. Stay tuned!
+                </p>
+            )
+        }
+    </section>
+
+    <section class="py-10">
+        <h2 class="text-3xl font-bold mb-8">Featured Projects</h2>
+        <p class="text-gray-600 dark:text-gray-300">
+            Check out my <a
+                href="/portfolio"
+                class="text-blue-500 hover:text-blue-700">portfolio</a
+            > for a showcase of development projects and contributions.
+        </p>
+        <!-- You could dynamically pull featured projects here later from your portfolio data -->
+    </section>
 </Layout>

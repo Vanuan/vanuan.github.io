@@ -1,0 +1,212 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import { SITE_TITLE } from "../consts";
+
+const currentYear = new Date().getFullYear();
+---
+
+<Layout title="CV | Vanya Yani" description="Vanya Yani's Curriculum Vitae">
+    <PageHeader
+        title="Vanya Yani"
+        description="Senior Frontend Software Engineer"
+    />
+    <section class="py-10">
+        <h2 class="text-2xl font-semibold mb-4">Contact</h2>
+        <p class="text-gray-600 dark:text-gray-300">
+            Greater London, Remote/Hybrid <br />
+            <a
+                href="https://www.linkedin.com/in/vanuan"
+                class="text-blue-500 hover:text-blue-700">LinkedIn</a
+            >: vanuan <br />
+            <a
+                href="https://github.com/vanuan"
+                class="text-blue-500 hover:text-blue-700">GitHub</a
+            >: vanuan
+        </p>
+    </section>
+    <section class="py-10">
+        <h2 class="text-2xl font-semibold mb-4">Skills & Expertise</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4">
+                <h3 class="text-xl font-semibold mb-2">Frontend Wizardry</h3>
+                <ul class="list-none pl-0 text-gray-600 dark:text-gray-300">
+                    <li>✨ React & Ecosystem</li>
+                    <li>⚛️ TypeScript Champion</li>
+                    <li>🎨 Modern CSS (Tailwind, Styled Components)</li>
+                    <li>🚀 Next.js Fanatic</li>
+                </ul>
+            </div>
+
+            <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4">
+                <h3 class="text-xl font-semibold mb-2">
+                    Backend & Tooling Maestro
+                </h3>
+                <ul class="list-none pl-0 text-gray-600 dark:text-gray-300">
+                    <li>🐍 Python, Node.js & Beyond</li>
+                    <li>🕸️ GraphQL APIs</li>
+                    <li>🛠️ Docker & CI/CD Pipelines</li>
+                    <li>🧪 Testing (Jest & More)</li>
+                </ul>
+            </div>
+
+            <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4">
+                <h3 class="text-xl font-semibold mb-2">AI & Cloud Innovator</h3>
+                <ul class="list-none pl-0 text-gray-600 dark:text-gray-300">
+                    <li>🤖 AI-Assisted Development</li>
+                    <li>☁️ Cloud Deployment (Vercel, Netlify, K8s)</li>
+                    <li>💡 Serverless Architectures</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="py-10">
+        <h2 class="text-2xl font-semibold mb-4">Summary</h2>
+        <p class="text-gray-600 dark:text-gray-300">
+            Senior Software Engineer with 10+ years of experience building
+            enterprise and web applications. Expertise in React, TypeScript, and
+            modern frontend architectures. Proven ability to lead technical
+            initiatives and improve development processes. Passionate about
+            exploring the intersection of software development and generative
+            AI.
+        </p>
+    </section>
+
+    <section class="py-10">
+        <h2 class="text-2xl font-semibold mb-4">Professional Experience</h2>
+
+        <h3 class="text-xl font-semibold mt-6 mb-2">
+            Personal & Professional Development (October 2023 - {currentYear})
+        </h3>
+        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+            <li>
+                Caregiver for newborn son (paternity leave): Developed
+                organizational and time management skills.
+            </li>
+            <li>
+                Explored AI-assisted development tools (GitHub Copilot, Cursor,
+                StackBlitz).
+            </li>
+            <li>
+                Researched the impact of AI on software development and the
+                future workforce.
+            </li>
+            <li>
+                Managed home renovation project: Applied planning skills to
+                documentation, scheduling, and practical construction.
+            </li>
+        </ul>
+
+        <h3 class="text-xl font-semibold mt-6 mb-2">
+            Capgemini Engineering Ukraine (October 2012 - October 2023)
+        </h3>
+        <p class="text-gray-600 dark:text-gray-300">
+            <em>Senior Software Engineer</em>
+        </p>
+
+        <h4 class="text-lg font-semibold mt-4 mb-2">
+            Affirm / BNPL User Portal (January 2021 - October 2023)
+        </h4>
+        <p class="text-gray-600 dark:text-gray-300">
+            <em>Senior Frontend Engineer, Remote (Ukraine, UK)</em>
+        </p>
+        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+            <li>
+                Developed customer self-service tools, resulting in 25K
+                reduction in inbound contacts and $0.66M decrease in servicing
+                costs.
+            </li>
+            <li>
+                Built phone number change flow, leading to $58.84M in annualized
+                GMV and a 16.6% increase in conversion rate.
+            </li>
+            <li>
+                Implemented self-service billing address update feature,
+                resulting in $360K annualized contribution margin.
+            </li>
+            <li>
+                Led frontend implementation of dispute deferral feature,
+                improving customer satisfaction and reducing operational costs.
+            </li>
+            <li>Improved unit/integration test coverage to over 80%.</li>
+        </ul>
+        <p class="text-sm text-gray-500 dark:text-gray-400">
+            Technologies: React, TypeScript, Python, CSS Modules, Jest
+        </p>
+
+        <h4 class="text-lg font-semibold mt-4 mb-2">
+            Care.com / Childcare Booking App (July 2020 - January 2021)
+        </h4>
+        <p class="text-gray-600 dark:text-gray-300">
+            <em>Senior Frontend Engineer, Remote (Ukraine)</em>
+        </p>
+        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+            <li>
+                Enhanced React micro-frontends architecture and NodeJS GraphQL
+                server in a team of 5.
+            </li>
+            <li>
+                Improved booking flow and scheduling functionality for
+                caregivers and clients.
+            </li>
+        </ul>
+        <p class="text-sm text-gray-500 dark:text-gray-400">
+            Technologies: React, TypeScript, NextJS, Styled Components, GraphQL,
+            Jest
+        </p>
+
+        <h4 class="text-lg font-semibold mt-4 mb-2">
+            Credit Union / Car Loan Calculator (July 2019 - January 2020)
+        </h4>
+        <p class="text-gray-600 dark:text-gray-300">
+            <em>Senior Software Engineer, Hybrid (Ukraine)</em>
+        </p>
+        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+            <li>
+                Introduced atomic design methodology and established Redux
+                architecture patterns.
+            </li>
+            <li>
+                Led implementation of key UI components and mentored junior
+                developers.
+            </li>
+        </ul>
+        <p class="text-sm text-gray-500 dark:text-gray-400">
+            Technologies: React, Redux, TypeScript, Styled Components, OpenAPI,
+            Jest
+        </p>
+
+        <h4 class="text-lg font-semibold mt-4 mb-2">
+            Sizmek (RocketFuel) / Ad DSP Portal (January 2014 - December 2019)
+        </h4>
+        <p class="text-gray-600 dark:text-gray-300">
+            <em>Senior Frontend Software Engineer, Ukraine</em>
+        </p>
+        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+            <li>
+                Developed frontend functionality using React and Redux for ad
+                campaign management.
+            </li>
+            <li>
+                Improved developer onboarding process using Docker, reducing
+                setup time from days to hours.
+            </li>
+            <li>Implemented continuous integration using Jenkins.</li>
+        </ul>
+        <p class="text-sm text-gray-500 dark:text-gray-400">
+            Technologies: JavaScript, React, Redux, Node.js, Docker, Jenkins,
+            Jest
+        </p>
+    </section>
+
+    <section class="py-10">
+        <h2 class="text-2xl font-semibold mb-4">Education</h2>
+        <h3 class="text-xl font-semibold mb-2">
+            Odesa State Environmental University (2005 - 2010)
+        </h3>
+        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+            <li>Master of Computer Applications (Honours)</li>
+            <li>BSc Computer Science (Honours)</li>
+        </ul>
+    </section>
+</Layout>

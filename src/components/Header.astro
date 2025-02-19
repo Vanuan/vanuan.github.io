@@ -1,0 +1,35 @@
+---
+const navItems = [
+    { label: "Home", path: "/" },
+    { label: "Blog", path: "/blog" },
+    { label: "My Code", path: "/my-code" },
+    { label: "Portfolio", path: "/portfolio" },
+    { label: "CV", path: "/cv" },
+    { label: "About", path: "/about" },
+];
+import { SITE_TITLE } from "../consts";
+---
+
+<header class="border-b border-gray-200 dark:border-gray-700">
+    <nav class="container mx-auto px-4 py-5">
+        <div class="flex justify-between items-center">
+            <a href="/" class="text-xl font-bold dark:text-white"
+                >{SITE_TITLE}</a
+            >
+            <ul class="flex gap-6">
+                {
+                    navItems.map(({ label, path }) => (
+                        <li>
+                            <a
+                                href={path}
+                                class="hover:text-gray-500 dark:hover:text-gray-300"
+                            >
+                                {label}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </nav>
+</header>

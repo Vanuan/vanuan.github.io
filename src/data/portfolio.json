@@ -1,0 +1,38 @@
+[
+  {
+    "page": "bespoke-electric-labels",
+    "name": "Bespoke Electric Labels",
+    "description": "React-based application designed to generate standardized electrical panel labels",
+    "tags": ["project", "react"]
+  },
+  {
+    "page": "drafter-mate",
+    "name": "Drafter Mate",
+    "description": "Idea to generate JSON from AI prompt and render floor plan based on it",
+    "tags": ["project", "ai"]
+  },
+  {
+    "page": "feature-experimentation-framework",
+    "name": "Feature Experimentation Framework",
+    "description": "Inspired by DevConsole, an idea to streamline feature experiments as code",
+    "tags": ["project", "framework"]
+  },
+  {
+    "page": "graal",
+    "name": "Graal",
+    "description": "PFM: poetry markdown format to generate Astro website - Claude",
+    "tags": ["project", "astro", "python"]
+  },
+  {
+    "page": "receipt-processor-app",
+    "name": "Receipt Processor App",
+    "description": "App to scan receipts, itemize, categorize and export to some storage",
+    "tags": ["project", "mobile"]
+  },
+  {
+    "page": "switchbot-meter-to-shelly",
+    "name": "Switchbot Meter to Shelly",
+    "description": "Shelly script to import Switchbot meter data using BLE",
+    "tags": ["project", "scripting"]
+  }
+]

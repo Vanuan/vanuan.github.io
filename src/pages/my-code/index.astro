@@ -1,0 +1,32 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { SITE_TITLE } from "../../consts";
+---
+
+<Layout
+    title="My Code | {SITE_TITLE}"
+    description="A collection of my code, contributions, and repositories."
+>
+    <section class="py-20">
+        <h1 class="text-4xl font-bold mb-4">My Code</h1>
+        <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
+            Explore my projects, contributions to open source, and owned
+            repositories.
+        </p>
+
+        <div class="flex flex-col gap-4">
+            <a
+                href="/my-code/projects"
+                class="text-blue-500 hover:text-blue-700">Projects</a
+            >
+            <a
+                href="/my-code/all-contributions"
+                class="text-blue-500 hover:text-blue-700">All Contributions</a
+            >
+            <a
+                href="/my-code/owned-repos"
+                class="text-blue-500 hover:text-blue-700">Owned Repositories</a
+            >
+        </div>
+    </section>
+</Layout>

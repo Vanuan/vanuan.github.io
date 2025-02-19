@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import PortfolioItem from "../components/PortfolioItem.astro"; // Create this component
+import portfolioData from "../data/portfolio.json"; // Import the data
+import { SITE_TITLE } from "../consts";
+---
+
+<Layout title="Portfolio | {SITE_TITLE}" description="My development projects">
+    <PageHeader
+        title="Development Projects"
+        description="A showcase of my development projects"
+    />
+
+    <section class="py-10">
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {portfolioData.map((item) => <PortfolioItem item={item} />)}
+        </div>
+    </section>
+</Layout>
