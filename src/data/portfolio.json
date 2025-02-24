@@ -34,5 +34,11 @@
     "name": "Switchbot Meter to Shelly",
     "description": "Shelly script to import Switchbot meter data using BLE",
     "tags": ["project", "scripting"]
+  },
+  {
+    "page": "eos-logo",
+    "name": "EOS Logo",
+    "description": "Echoes of the Spaces - Logo & Cover Design",
+    "tags": ["project", "design", "animation"]
   }
 ]

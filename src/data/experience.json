@@ -1,0 +1,116 @@
+[
+  {
+    "company": "Capgemini",
+    "project": "Affirm",
+    "title": "Affirm / BNPL User Portal",
+    "description": "Developed customer self-service tools, resulting in 25K reduction in inbound contacts and $0.66M decrease in servicing costs. Built phone number change flow, leading to $58.84M in annualized GMV and a 16.6% increase in conversion rate. Implemented self-service billing address update feature, resulting in $360K annualized contribution margin. Led frontend implementation of dispute deferral feature, improving customer satisfaction and reducing operational costs. Improved unit/integration test coverage to over 80%.",
+    "responsibilities": [
+      "Developed customer self-service tools, resulting in 25K reduction in inbound contacts and $0.66M decrease in servicing costs.",
+      "Built phone number change flow, leading to $58.84M in annualized GMV and a 16.6% increase in conversion rate.",
+      "Implemented self-service billing address update feature, resulting in $360K annualized contribution margin.",
+      "Led frontend implementation of dispute deferral feature, improving customer satisfaction and reducing operational costs.",
+      "Improved unit/integration test coverage to over 80%."
+    ],
+    "technologies": "React, TypeScript, Python, CSS Modules, Jest",
+    "start_date": "January 2021",
+    "end_date": "October 2023",
+    "role": "Senior Frontend Engineer",
+    "location": "Remote (Ukraine, UK)"
+  },
+  {
+    "company": "Capgemini",
+    "project": "Care.com",
+    "title": "Care.com / Childcare Booking App",
+    "description": "Enhanced React micro-frontends architecture and NodeJS GraphQL server in a team. Improved booking flow and scheduling functionality for caregivers and clients.",
+    "responsibilities": [
+      "Enhanced React micro-frontends architecture and NodeJS GraphQL server in a team of 5.",
+      "Improved booking flow and scheduling functionality for caregivers and clients."
+    ],
+    "technologies": "React, TypeScript, NextJS, Styled Components, GraphQL, Jest",
+    "start_date": "July 2020",
+    "end_date": "January 2021",
+    "role": "Senior Frontend Engineer",
+    "location": "Remote (Ukraine)"
+  },
+  {
+    "company": "Capgemini",
+    "project": "Credit Union",
+    "title": "Credit Union / Car Loan Calculator",
+    "description": "Introduced atomic design methodology and established Redux architecture patterns. Led implementation of key UI components and mentored junior developers.",
+    "responsibilities": [
+      "Introduced atomic design methodology and established Redux architecture patterns.",
+      "Led implementation of key UI components and mentored junior developers."
+    ],
+    "technologies": "React, Redux, TypeScript, Styled Components, OpenAPI, Jest",
+    "start_date": "July 2019",
+    "end_date": "January 2020",
+    "role": "Senior Software Engineer",
+    "location": "Hybrid (Ukraine)"
+  },
+  {
+    "company": "Sizmek (RocketFuel)",
+    "project": "Ad DSP Portal",
+    "title": "Sizmek (RocketFuel) / Ad DSP Portal",
+    "description": "Developed frontend functionality using React and Redux for ad campaign management. Improved developer onboarding process using Docker, reducing setup time. Implemented continuous integration using Jenkins.",
+    "responsibilities": [
+      "Developed frontend functionality using React and Redux for ad campaign management.",
+      "Improved developer onboarding process using Docker, reducing setup time from days to hours.",
+      "Implemented continuous integration using Jenkins."
+    ],
+    "technologies": "JavaScript, React, Redux, Node.js, Docker, Jenkins, Jest",
+    "start_date": "January 2014",
+    "end_date": "December 2019",
+    "role": "Senior Frontend Software Engineer",
+    "location": "Ukraine"
+  },
+  {
+    "company": "HP",
+    "project": "UCMDB DDM",
+    "title": "UCMDB DDM Content",
+    "description": "Developed modules for an enterprise IT infrastructure dependency mapping system, discovering more configuration items for customers.",
+    "responsibilities": [
+      "Developed modules for an enterprise IT infrastructure dependency mapping system",
+      "Discovered more configuration items for customers",
+      "Developed different modules allowing to discover more configuration items for customer (IPv6, Red Hat, SAP, Windows 2012)",
+      "Investigated an issue and proposed a solution that streamlines developer experience (python module reloading mechanism)",
+      "Implemented a script that reports configuration items the product supports to reduce manual collection and to help sales to advertise the product to customers"
+    ],
+    "technologies": "Jython, Python",
+    "start_date": "January 2012",
+    "end_date": "December 2014",
+    "role": "Senior Software Engineer",
+    "location": "Ukraine"
+  },
+  {
+    "company": "HP",
+    "project": "Plugins",
+    "title": "Office Plugins for Embedded Browser",
+    "description": "PDF, DOC, XLS, PPT NPAPI-plugins, EWS library.",
+    "responsibilities": [
+      "Implemented a core part of PDF-viewing plugin that is used to view PDF-documents in the car infotainment system",
+      "Improved appearance and quality of Office document viewing plugins",
+      "Improved quality of Exchange Web Services library that is used in the product that delivers MS e-mail services into the car infotainment system",
+      "Introduced Hudson/Jenkins CI to the team to improve quality and better detect bugs"
+    ],
+    "technologies": "C++, STL, POSIX (QNX, Linux), NPAPI",
+    "start_date": "2010",
+    "end_date": "2012",
+    "role": "Software Engineer",
+    "location": "Ukraine"
+  },
+  {
+    "company": "Ukrainian Railways",
+    "project": "Rotor",
+    "title": "Rotor Balancing Machine",
+    "description": "Embedded software for rotor balancing machine.",
+    "responsibilities": [
+      "Developed Software Requirements Specification document to better understand customer needs",
+      "Implemented a complete system that controls a dynamic balancing machine that is used to rebalance rotors"
+    ],
+    "technologies": "AVR Assembler, C++, Qt, Sqlite, Linux",
+    "start_date": "2008",
+    "end_date": "2010",
+    "role": "Software Engineer",
+    "location": "Ukraine"
+  }
+]

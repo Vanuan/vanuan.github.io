@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "../components/PageHeader.astro";
 import { SITE_TITLE } from "../consts";
+import ExperienceItem from "../components/ExperienceItem.astro";
+import experienceData from "../data/experience.json";
 
 const currentYear = new Date().getFullYear();
 ---
@@ -76,7 +78,7 @@ const currentYear = new Date().getFullYear();
         <h2 class="text-2xl font-semibold mb-4">Professional Experience</h2>
 
         <h3 class="text-xl font-semibold mt-6 mb-2">
-            Personal & Professional Development (October 2023 - {currentYear})
+            Personal &amp; Professional Development (October 2023 - {currentYear})
         </h3>
         <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
             <li>
@@ -104,109 +106,34 @@ const currentYear = new Date().getFullYear();
             <em>Senior Software Engineer</em>
         </p>
 
-        <h4 class="text-lg font-semibold mt-4 mb-2">
-            Affirm / BNPL User Portal (January 2021 - October 2023)
-        </h4>
-        <p class="text-gray-600 dark:text-gray-300">
-            <em>Senior Frontend Engineer, Remote (Ukraine, UK)</em>
-        </p>
-        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
-            <li>
-                Developed customer self-service tools, resulting in 25K
-                reduction in inbound contacts and $0.66M decrease in servicing
-                costs.
-            </li>
-            <li>
-                Built phone number change flow, leading to $58.84M in annualized
-                GMV and a 16.6% increase in conversion rate.
-            </li>
-            <li>
-                Implemented self-service billing address update feature,
-                resulting in $360K annualized contribution margin.
-            </li>
-            <li>
-                Led frontend implementation of dispute deferral feature,
-                improving customer satisfaction and reducing operational costs.
-            </li>
-            <li>Improved unit/integration test coverage to over 80%.</li>
-        </ul>
-        <p class="text-sm text-gray-500 dark:text-gray-400">
-            Technologies: React, TypeScript, Python, CSS Modules, Jest
-        </p>
+        {
+            experienceData
+                .filter((experience) => {
+                    const endDate = new Date(experience.end_date);
+                    const fiveYearsAgo = new Date();
+                    fiveYearsAgo.setFullYear(fiveYearsAgo.getFullYear() - 5);
+                    return endDate >= fiveYearsAgo;
+                })
+                .map((experience) => (
+                    <ExperienceItem experience={experience} />
+                ))
+        }
+        <a
+            href="/commercial-experience"
+            class="inline-block mt-4 text-blue-500 hover:text-blue-700"
+        >
+            See more experience →
+        </a>
 
-        <h4 class="text-lg font-semibold mt-4 mb-2">
-            Care.com / Childcare Booking App (July 2020 - January 2021)
-        </h4>
-        <p class="text-gray-600 dark:text-gray-300">
-            <em>Senior Frontend Engineer, Remote (Ukraine)</em>
-        </p>
-        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
-            <li>
-                Enhanced React micro-frontends architecture and NodeJS GraphQL
-                server in a team of 5.
-            </li>
-            <li>
-                Improved booking flow and scheduling functionality for
-                caregivers and clients.
-            </li>
-        </ul>
-        <p class="text-sm text-gray-500 dark:text-gray-400">
-            Technologies: React, TypeScript, NextJS, Styled Components, GraphQL,
-            Jest
-        </p>
-
-        <h4 class="text-lg font-semibold mt-4 mb-2">
-            Credit Union / Car Loan Calculator (July 2019 - January 2020)
-        </h4>
-        <p class="text-gray-600 dark:text-gray-300">
-            <em>Senior Software Engineer, Hybrid (Ukraine)</em>
-        </p>
-        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
-            <li>
-                Introduced atomic design methodology and established Redux
-                architecture patterns.
-            </li>
-            <li>
-                Led implementation of key UI components and mentored junior
-                developers.
-            </li>
-        </ul>
-        <p class="text-sm text-gray-500 dark:text-gray-400">
-            Technologies: React, Redux, TypeScript, Styled Components, OpenAPI,
-            Jest
-        </p>
-
-        <h4 class="text-lg font-semibold mt-4 mb-2">
-            Sizmek (RocketFuel) / Ad DSP Portal (January 2014 - December 2019)
-        </h4>
-        <p class="text-gray-600 dark:text-gray-300">
-            <em>Senior Frontend Software Engineer, Ukraine</em>
-        </p>
-        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
-            <li>
-                Developed frontend functionality using React and Redux for ad
-                campaign management.
-            </li>
-            <li>
-                Improved developer onboarding process using Docker, reducing
-                setup time from days to hours.
-            </li>
-            <li>Implemented continuous integration using Jenkins.</li>
-        </ul>
-        <p class="text-sm text-gray-500 dark:text-gray-400">
-            Technologies: JavaScript, React, Redux, Node.js, Docker, Jenkins,
-            Jest
-        </p>
-    </section>
-
-    <section class="py-10">
-        <h2 class="text-2xl font-semibold mb-4">Education</h2>
-        <h3 class="text-xl font-semibold mb-2">
-            Odesa State Environmental University (2005 - 2010)
-        </h3>
-        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
-            <li>Master of Computer Applications (Honours)</li>
-            <li>BSc Computer Science (Honours)</li>
-        </ul>
+        <section class="py-10">
+            <h2 class="text-2xl font-semibold mb-4">Education</h2>
+            <h3 class="text-xl font-semibold mb-2">
+                Odesa State Environmental University (2005 - 2010)
+            </h3>
+            <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+                <li>Master of Computer Applications (Honours)</li>
+                <li>BSc Computer Science (Honours)</li>
+            </ul>
+        </section>
     </section>
 </Layout>

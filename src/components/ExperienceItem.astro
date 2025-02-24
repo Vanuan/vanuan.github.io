@@ -1,0 +1,48 @@
+---
+interface Props {
+    experience: {
+        title: string;
+        company: string;
+        project?: string;
+        description: string;
+        responsibilities?: string[];
+        start_date: string;
+        end_date: string;
+        role: string;
+        location: string;
+        technologies: string;
+    };
+}
+
+const { experience } = Astro.props;
+---
+
+<div class="mb-8">
+    <h3 class="text-xl font-semibold mt-6 mb-2">
+        {experience.title} ({experience.company})
+    </h3>
+    {experience.project && (
+        <p class="text-gray-600 dark:text-gray-300 mb-2">
+            <em>{experience.project}</em>
+        </p>
+    )}
+    <p class="text-gray-600 dark:text-gray-300 mb-2">
+        {experience.description}
+    </p>
+    {experience.responsibilities && (
+        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+            {experience.responsibilities.map((responsibility) => (
+                <li>{responsibility}</li>
+            ))}
+        </ul>
+    )}
+    <p class="text-gray-600 dark:text-gray-300 mb-2">
+        {experience.start_date} - {experience.end_date}
+    </p>
+    <p class="text-gray-600 dark:text-gray-300 mb-2">
+        {experience.role}, {experience.location}
+    </p>
+    <p class="text-sm text-gray-500 dark:text-gray-400">
+        Technologies: {experience.technologies}
+    </p>
+</div>
