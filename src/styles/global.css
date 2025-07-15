@@ -134,5 +134,36 @@
     .prose .astro-code code {
         @apply text-sm leading-relaxed;
     }
+
+    /* Enhanced image styling with captions */
+    .prose img {
+        @apply rounded-lg shadow-md border border-gray-200 dark:border-gray-700 mx-auto my-8;
+    }
+    
+    .prose figure {
+        @apply my-8 text-center;
+    }
+    
+    .prose figure img {
+        @apply mb-3;
+    }
+    
+    .prose figcaption {
+        @apply text-sm text-gray-600 dark:text-gray-400 italic leading-relaxed max-w-2xl mx-auto;
+    }
+    
+    /* Image container for better responsive behavior */
+    .prose .image-container {
+        @apply my-8 text-center;
+    }
+    
+    .prose .image-container img {
+        @apply max-w-full h-auto rounded-lg shadow-md border border-gray-200 dark:border-gray-700 mx-auto mb-3;
+    }
+    
+    .prose .image-caption {
+        @apply text-sm text-gray-600 dark:text-gray-400 italic leading-relaxed max-w-2xl mx-auto block;
+    }
+
 }
 

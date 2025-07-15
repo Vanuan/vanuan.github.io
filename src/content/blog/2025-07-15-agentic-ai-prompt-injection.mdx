@@ -5,6 +5,22 @@ publishDate: 2025-07-15
 tags: ["AI Security", "Prompt Injection", "Agentic AI", "Cybersecurity", "Machine Learning", "AI Safety"]
 ---
 
+import { Image } from 'astro:assets';
+import screenshot from '../../assets/images/2025-07-15-agentic-ai-prompt-injection.png';
+
+
+  <figure class="w-full">
+    <Image 
+      src={screenshot} 
+      alt="A screenshot of a successful prompt injecting attack in one of the coding assistant tools"
+      class="w-full h-auto rounded-none md:rounded-lg"
+    />
+
+    <figcaption class="px-4 md:px-8 mt-3">
+A screenshot of a successful prompt injecting attack in one of the coding assistant tools
+    </figcaption>
+  </figure>
+
 Agentic AI systems are everywhere—from GitHub Copilot writing code to Claude analyzing documents in your IDE. These AI agents can read files, execute commands, browse the web, and interact with APIs autonomously. But as they gain access to our most sensitive data and critical systems, they create an entirely new class of security vulnerabilities.
 
 Unlike traditional software that processes structured data, AI agents operate in the fuzzy world of natural language. This creates a fundamental problem: **when everything is text, how do you distinguish between data and instructions?**
