@@ -1,3 +1,138 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+    /* Custom scrollbar for webkit browsers */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        @apply bg-gray-100 dark:bg-gray-800;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-gray-400 dark:bg-gray-500;
+    }
+
+    /* Smooth focus transitions */
+    *:focus {
+        @apply outline-none ring-2 ring-blue-500 ring-opacity-50 ring-offset-2 ring-offset-white dark:ring-offset-gray-900;
+    }
+}
+
+@layer components {
+    /* Enhanced prose styles for better code block appearance */
+    .prose {
+        @apply text-gray-800 dark:text-gray-200;
+    }
+    
+    /* Better paragraph spacing */
+    .prose p {
+        @apply mb-6 leading-relaxed;
+    }
+    
+    .prose p + p {
+        @apply mt-6;
+    }
+    
+    .prose pre {
+        @apply bg-gray-900 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 overflow-x-auto my-6;
+    }
+    
+    .prose code {
+        @apply bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono;
+    }
+    
+    .prose pre code {
+        @apply bg-transparent px-0 py-0;
+    }
+    
+    /* Enhanced heading spacing */
+    .prose h2 {
+        @apply mt-12 mb-6 scroll-mt-20 text-3xl font-bold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3;
+    }
+    
+    .prose h3 {
+        @apply mt-10 mb-4 scroll-mt-20 text-2xl font-bold text-gray-900 dark:text-white;
+    }
+    
+    .prose h4 {
+        @apply mt-8 mb-4 scroll-mt-20 text-xl font-semibold text-gray-900 dark:text-white;
+    }
+    
+    .prose h5 {
+        @apply mt-6 mb-3 scroll-mt-20 text-lg font-semibold text-gray-900 dark:text-white;
+    }
+    
+    .prose h6 {
+        @apply mt-6 mb-3 scroll-mt-20 text-base font-semibold text-gray-900 dark:text-white;
+    }
+    
+    /* Better spacing around elements */
+    .prose ul,
+    .prose ol {
+        @apply my-6 space-y-3;
+    }
+    
+    .prose blockquote {
+        @apply border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-900/20 pl-4 py-3 my-8 italic;
+    }
+    
+    /* Enhanced link styling */
+    .prose a {
+        @apply text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-200;
+    }
+    
+    /* Table improvements */
+    .prose table {
+        @apply border-collapse border border-gray-200 dark:border-gray-700;
+    }
+    
+    .prose th,
+    .prose td {
+        @apply border border-gray-200 dark:border-gray-700 px-4 py-2;
+    }
+    
+    .prose th {
+        @apply bg-gray-50 dark:bg-gray-800 font-semibold;
+    }
+    
+    /* Heading anchor links */
+    .prose h2,
+    .prose h3,
+    .prose h4,
+    .prose h5,
+    .prose h6 {
+        @apply scroll-mt-20;
+    }
+    
+    /* Enhanced list styling */
+    .prose ul {
+        @apply space-y-3;
+    }
+    
+    .prose ol {
+        @apply space-y-3;
+    }
+    
+    .prose li {
+        @apply leading-relaxed;
+    }
+
+    /* Code syntax highlighting improvements */
+    .prose .astro-code {
+        @apply rounded-lg border border-gray-200 dark:border-gray-700;
+    }
+    
+    .prose .astro-code code {
+        @apply text-sm leading-relaxed;
+    }
+}
+
