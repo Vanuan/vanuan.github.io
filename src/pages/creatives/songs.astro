@@ -1,0 +1,114 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import { getCollection } from "astro:content";
+
+const songs = await getCollection("songs");
+const sortedSongs = songs.sort((a, b) => b.data.publishDate - a.data.publishDate);
+---
+
+<Layout title="Songs | Creatives | Vanya Yani" description="Musical explorations of our digital age and human experience">
+    <PageHeader
+        title="Songs"
+        description="Musical explorations of our digital age, tech culture, and the human experience in an algorithmic world. Raw, unpolished, and unapologetically honest."
+    />
+
+    <section class="py-10">
+        <div class="prose dark:prose-invert max-w-none mb-12">
+            <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                These songs emerge from the intersection of technology and humanity, where algorithms
+                meet emotions and digital privacy becomes a form of rebellion. They're not polished
+                studio productions - they're honest reflections on living in an age where our
+                thoughts are harvested and our attention is sold.
+            </p>
+        </div>
+
+        {sortedSongs.length > 0 ? (
+            <div class="space-y-8">
+                {sortedSongs.map((song) => (
+                    <article class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-8 shadow-sm hover:shadow-md transition-shadow duration-200">
+                        <div class="flex items-start gap-6">
+                            <div class="bg-purple-100 dark:bg-purple-900/30 p-4 rounded-xl">
+                                <svg class="w-8 h-8 text-purple-600 dark:text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM15.657 6.343a1 1 0 011.414 0A9.972 9.972 0 0119 12a9.972 9.972 0 01-1.929 5.657 1 1 0 11-1.414-1.414A7.971 7.971 0 0017 12c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.829a1 1 0 011.414 0A5.983 5.983 0 0115 12a5.983 5.983 0 01-.758 2.828 1 1 0 11-1.414-1.414A3.987 3.987 0 0013 12a3.987 3.987 0 00-.172-1.414 1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h2 class="text-2xl font-bold mb-3">
+                                    <a
+                                        href={`/creatives/songs/${song.slug}`}
+                                        class="text-gray-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-200"
+                                    >
+                                        {song.data.title}
+                                    </a>
+                                </h2>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                                    {song.data.description}
+                                </p>
+                                <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                                    <time datetime={song.data.publishDate.toISOString()}>
+                                        {new Date(song.data.publishDate).toLocaleDateString('en-US', {
+                                            year: 'numeric',
+                                            month: 'long',
+                                            day: 'numeric'
+                                        })}
+                                    </time>
+                                    {song.data.genre && (
+                                        <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-3 py-1 rounded-full text-xs font-medium">
+                                            {song.data.genre}
+                                        </span>
+                                    )}
+                                    {song.data.tags && song.data.tags.length > 0 && (
+                                        <div class="flex flex-wrap gap-2">
+                                            {song.data.tags.map((tag) => (
+                                                <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded-md text-xs">
+                                                    #{tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                                <div class="mt-6">
+                                    <a
+                                        href={`/creatives/songs/${song.slug}`}
+                                        class="inline-flex items-center text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 font-medium transition-colors duration-200"
+                                    >
+                                        Read lyrics
+                                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                ))}
+            </div>
+        ) : (
+            <div class="text-center py-16">
+                <div class="bg-gray-100 dark:bg-gray-800 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM15.657 6.343a1 1 0 011.414 0A9.972 9.972 0 0119 12a9.972 9.972 0 01-1.929 5.657 1 1 0 11-1.414-1.414A7.971 7.971 0 0017 12c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.829a1 1 0 011.414 0A5.983 5.983 0 0115 12a5.983 5.983 0 01-.758 2.828 1 1 0 11-1.414-1.414A3.987 3.987 0 0013 12a3.987 3.987 0 00-.172-1.414 1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">No songs yet</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    The music is still being written. Check back soon for new releases!
+                </p>
+            </div>
+        )}
+    </section>
+
+    <!-- Back to Creatives -->
+    <section class="py-8 border-t border-gray-200 dark:border-gray-700">
+        <a
+            href="/creatives"
+            class="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+        >
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Back to Creatives
+        </a>
+    </section>
+</Layout>

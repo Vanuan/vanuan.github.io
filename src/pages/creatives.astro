@@ -1,0 +1,206 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import { SITE_TITLE } from "../consts";
+---
+
+<Layout
+    title="Creatives | Vanya Yani"
+    description="Creative works - songs, books, and other artistic expressions by Vanya Yani"
+>
+    <PageHeader
+        title="Creatives"
+        description="These are my attempts to express my thoughts and feelings in unserious form"
+    />
+
+    <section class="py-10">
+        <div class="prose dark:prose-invert max-w-none">
+            <p
+                class="text-lg text-gray-600 dark:text-gray-300 mb-12 leading-relaxed"
+            >
+                Welcome to the creative corner of my digital space. Here you'll
+                find my experimental ventures into artistic expression - from
+                songs that tackle our digital age's complexities to stories that
+                explore the human condition. These works are my way of
+                processing the world around us, often with a healthy dose of
+                irreverence and a touch of rebellion against the systems we've
+                built.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+            <!-- Songs Section -->
+            <div
+                class="bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-xl p-8 border border-purple-200 dark:border-purple-700"
+            >
+                <div class="flex items-center mb-4">
+                    <svg
+                        class="w-8 h-8 text-purple-600 dark:text-purple-400 mr-3"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM15.657 6.343a1 1 0 011.414 0A9.972 9.972 0 0119 12a9.972 9.972 0 01-1.929 5.657 1 1 0 11-1.414-1.414A7.971 7.971 0 0017 12c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.829a1 1 0 011.414 0A5.983 5.983 0 0115 12a5.983 5.983 0 01-.758 2.828 1 1 0 11-1.414-1.414A3.987 3.987 0 0013 12a3.987 3.987 0 00-.172-1.414 1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <h2
+                        class="text-2xl font-bold text-purple-800 dark:text-purple-200"
+                    >
+                        Songs
+                    </h2>
+                </div>
+                <p class="text-gray-700 dark:text-gray-300 mb-6">
+                    Musical explorations of our digital age, tech culture, and
+                    the human experience in an algorithmic world. Raw,
+                    unpolished, and unapologetically honest.
+                </p>
+                <a
+                    href="/creatives/songs"
+                    class="inline-flex items-center bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+                >
+                    Listen to Songs
+                    <svg
+                        class="w-4 h-4 ml-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Books Section -->
+            <div
+                class="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-xl p-8 border border-emerald-200 dark:border-emerald-700"
+            >
+                <div class="flex items-center mb-4">
+                    <svg
+                        class="w-8 h-8 text-emerald-600 dark:text-emerald-400 mr-3"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                    >
+                        <path
+                            d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"
+                        ></path>
+                    </svg>
+                    <h2
+                        class="text-2xl font-bold text-emerald-800 dark:text-emerald-200"
+                    >
+                        Books
+                    </h2>
+                </div>
+                <p class="text-gray-700 dark:text-gray-300 mb-6">
+                    Written works, short stories, and longer narratives. Fiction
+                    and non-fiction pieces that dive into technology,
+                    philosophy, and the absurdities of modern life.
+                </p>
+                <a
+                    href="/creatives/books"
+                    class="inline-flex items-center bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+                >
+                    Read Books
+                    <svg
+                        class="w-4 h-4 ml-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Creative Work -->
+    <section class="py-10 border-t border-gray-200 dark:border-gray-700">
+        <h2 class="text-3xl font-bold mb-8">Featured Work</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Featured Song -->
+            <div
+                class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl p-8 border border-purple-200 dark:border-purple-700"
+            >
+                <div class="flex items-start gap-4">
+                    <div
+                        class="bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg"
+                    >
+                        <svg
+                            class="w-6 h-6 text-purple-600 dark:text-purple-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM15.657 6.343a1 1 0 011.414 0A9.972 9.972 0 0119 12a9.972 9.972 0 01-1.929 5.657 1 1 0 11-1.414-1.414A7.971 7.971 0 0017 12c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.829a1 1 0 011.414 0A5.983 5.983 0 0115 12a5.983 5.983 0 01-.758 2.828 1 1 0 11-1.414-1.414A3.987 3.987 0 0013 12a3.987 3.987 0 00-.172-1.414 1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold mb-2">
+                            🎵 Consent Minimalist
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            A digital resistance anthem about refusing
+                            surveillance capitalism and maintaining privacy in
+                            an over-connected world.
+                        </p>
+                        <a
+                            href="/creatives/songs/consent-minimalist"
+                            class="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 font-medium"
+                        >
+                            Read the lyrics →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Book -->
+            <div
+                class="bg-gradient-to-br from-emerald-50 to-blue-50 dark:from-emerald-900/20 dark:to-blue-900/20 rounded-xl p-8 border border-emerald-200 dark:border-emerald-700"
+            >
+                <div class="flex items-start gap-4">
+                    <div
+                        class="bg-emerald-100 dark:bg-emerald-900/30 p-3 rounded-lg"
+                    >
+                        <svg
+                            class="w-6 h-6 text-emerald-600 dark:text-emerald-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold mb-2">
+                            📖 Beck Bone's Final Knock
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            A short story about the Cornwall Experiment - when
+                            one woman's resistance to digital optimization
+                            sparked a movement that changed UK policy on ethical
+                            AI.
+                        </p>
+                        <a
+                            href="/creatives/books/beck-bones-final-knock"
+                            class="text-emerald-600 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300 font-medium"
+                        >
+                            Read the story →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>

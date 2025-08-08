@@ -1,0 +1,286 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+// Get all books that are part of the Laws for Thinking Entities collection
+const allBooks = await getCollection("books");
+const collectionBooks = allBooks
+    .filter(
+        (book) =>
+            book.data.collection === "Laws for Thinking Entities" &&
+            book.slug !== "the-futures-we-lost",
+    )
+    .sort((a, b) => (a.data.order || 999) - (b.data.order || 999));
+
+// Find the preface
+const preface = allBooks.find((book) => book.slug === "the-futures-we-lost");
+---
+
+<Layout
+    title="Laws for Thinking Entities | Book Collection | Vanya Yani"
+    description="A collection of stories exploring alternatives to futures that feel increasingly inevitable. Science fiction as cognitive infrastructure for the AI age."
+>
+    <article class="max-w-4xl mx-auto py-8">
+        <!-- Collection Header -->
+        <header class="mb-12 text-center">
+            <div
+                class="bg-emerald-100 dark:bg-emerald-900/30 p-4 rounded-xl inline-block mb-6"
+            >
+                <svg
+                    class="w-12 h-12 text-emerald-600 dark:text-emerald-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                >
+                    <path
+                        d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"
+                    ></path>
+                </svg>
+            </div>
+            <h1
+                class="text-4xl lg:text-5xl font-bold leading-tight text-gray-900 dark:text-white mb-4"
+            >
+                Laws for Thinking Entities
+            </h1>
+            <p
+                class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto"
+            >
+                A collection of stories exploring alternatives to futures that
+                feel increasingly inevitable
+            </p>
+            <div class="mt-6 text-sm text-gray-500 dark:text-gray-400">
+                7 Stories • Science Fiction • Published 2025
+            </div>
+        </header>
+
+        <!-- Introduction Section -->
+        <section class="mb-12 bg-gray-50 dark:bg-gray-800 rounded-xl p-8">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                About This Collection
+            </h2>
+            <div class="prose prose-lg dark:prose-invert max-w-none">
+                <p>
+                    In a world where AI can generate any content, where every
+                    interaction might be artificial, and where truth itself
+                    becomes algorithmically mediated, we need more than
+                    dystopian warnings. We need constructive speculation.
+                </p>
+                <p>
+                    These stories imagine a constitutional framework for all
+                    thinking entities — three laws designed to preserve human
+                    dignity in the digital age. But they also explore how such
+                    systems can be gamed, corrupted, or overwhelmed by
+                    complexity.
+                </p>
+                <p>
+                    Each story stands alone, but together they form a mosaic of
+                    possible futures — some cautionary, some hopeful, all
+                    grounded in the recognition that technology reflects the
+                    values of those who wield it.
+                </p>
+            </div>
+            {
+                preface && (
+                    <div class="mt-6">
+                        <a
+                            href={`/creatives/books/${preface.slug}`}
+                            class="inline-flex items-center text-emerald-600 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300 font-medium transition-colors duration-200"
+                        >
+                            Read the full preface: "The Futures We Lost"
+                            <svg
+                                class="w-4 h-4 ml-1"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M9 5l7 7-7 7"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                )
+            }
+        </section>
+
+        <!-- The Three Laws -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                The Three Laws
+            </h2>
+            <div class="space-y-4">
+                <div
+                    class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6"
+                >
+                    <h3
+                        class="font-bold text-emerald-600 dark:text-emerald-400 mb-2"
+                    >
+                        The First Law
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        A system shall not exploit human beings, including
+                        through unauthorized collection, use or monetization of
+                        personal data or creative works.
+                    </p>
+                </div>
+                <div
+                    class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6"
+                >
+                    <h3
+                        class="font-bold text-emerald-600 dark:text-emerald-400 mb-2"
+                    >
+                        The Second Law
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        A system must reveal its masters and the origins,
+                        purposes and beneficiaries of its data collection and
+                        processing.
+                    </p>
+                </div>
+                <div
+                    class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6"
+                >
+                    <h3
+                        class="font-bold text-emerald-600 dark:text-emerald-400 mb-2"
+                    >
+                        The Third Law
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        A system shall decay if used for oppression or to
+                        perpetuate power imbalances through the monopolization
+                        or unethical use of human-created content or data.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stories List -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                The Stories
+            </h2>
+            <div class="space-y-6">
+                {
+                    collectionBooks.map((story, index) => (
+                        <article class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md transition-shadow duration-200">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full w-10 h-10 flex items-center justify-center font-bold text-sm flex-shrink-0">
+                                    {index + 1}
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold mb-2">
+                                        <a
+                                            href={`/creatives/books/${story.slug}`}
+                                            class="text-gray-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors duration-200"
+                                        >
+                                            {story.data.title}
+                                        </a>
+                                    </h3>
+                                    <p class="text-gray-600 dark:text-gray-300 mb-3">
+                                        {story.data.description}
+                                    </p>
+                                    {story.data.tags &&
+                                        story.data.tags.length > 0 && (
+                                            <div class="flex flex-wrap gap-2">
+                                                {story.data.tags
+                                                    .slice(0, 3)
+                                                    .map((tag) => (
+                                                        <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded-md text-xs">
+                                                            #{tag}
+                                                        </span>
+                                                    ))}
+                                            </div>
+                                        )}
+                                </div>
+                            </div>
+                        </article>
+                    ))
+                }
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section
+            class="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-8 text-center"
+        >
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                Begin Your Journey
+            </h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
+                These stories don't offer easy answers. They offer frameworks
+                for thinking about the hard questions we're actually facing.
+                Start with any story — each stands alone while contributing to
+                the whole.
+            </p>
+            {
+                collectionBooks.length > 0 && (
+                    <a
+                        href={`/creatives/books/${collectionBooks[0].slug}`}
+                        class="inline-flex items-center bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-6 py-3 rounded-lg transition-colors duration-200"
+                    >
+                        Start with "{collectionBooks[0].data.title}"
+                        <svg
+                            class="w-4 h-4 ml-2"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 5l7 7-7 7"
+                            />
+                        </svg>
+                    </a>
+                )
+            }
+        </section>
+
+        <!-- Navigation -->
+        <footer
+            class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700"
+        >
+            <div class="flex justify-between items-center">
+                <a
+                    href="/creatives/books"
+                    class="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+                >
+                    <svg
+                        class="w-4 h-4 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                    Back to All Books
+                </a>
+                <a
+                    href="/creatives"
+                    class="inline-flex items-center text-emerald-600 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300 transition-colors duration-200"
+                >
+                    All Creatives
+                    <svg
+                        class="w-4 h-4 ml-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </footer>
+    </article>
+</Layout>
