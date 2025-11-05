@@ -1,0 +1,77 @@
+---
+const { series, seriesPosts, currentSlug } = Astro.props;
+---
+
+<div class="mb-8 border-b border-gray-200 dark:border-gray-700 pb-8">
+    <div class="mt-6 mb-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+        <h4 class="text-md font-semibold mb-3 text-gray-800 dark:text-gray-200">
+            What's Next in This Series
+        </h4>
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+            Each article in this series dives deep into one aspect of the
+            JavaScript toolchain evolution, showing not just what changed, but
+            why it changed and what we learned along the way.
+        </p>
+    </div>
+
+    <div class="space-y-4">
+        {
+            seriesPosts.map((article, idx) => {
+                // Map each post to its description for the series list
+                const descriptions = {
+                    "2025-10-24-javascript-toolchain-journey":
+                        "Exploring how JavaScript tooling evolved from overwhelming complexity to elegant simplicity, and what this journey teaches us about software ecosystem development.",
+                    "2025-10-10-task-runners-automation-wars":
+                        "How Grunt and Gulp transformed build processes from manual labor to automated workflows.",
+                    "2025-10-25-wild-west-to-modules":
+                        "How ES6 modules, CommonJS, and AMD shaped modern JavaScript development.",
+                    "2025-10-12-bundler-evolution-webpack-to-vite":
+                        "From RequireJS to Webpack to Vite: Why speed matters in modern JavaScript bundling.",
+                    "2025-10-13-typescript-quiet-revolution":
+                        "How optional typing changed JavaScript development through TypeScript's adoption.",
+                    "2025-10-14-testing-tools-consolidation":
+                        "The journey from chaotic testing frameworks to Jest dominance in JavaScript testing.",
+                };
+
+                const description = descriptions[article.slug] || "";
+
+                return (
+                    <a
+                        href={`/blog/${article.slug}`}
+                        class={`flex items-start gap-3 p-3 rounded-lg transition-all duration-200 group ${
+                            article.slug === currentSlug
+                                ? "bg-blue-50 dark:bg-blue-900/20"
+                                : "hover:bg-gray-50 dark:hover:bg-gray-800"
+                        }`}
+                    >
+                        <span
+                            class={`flex-shrink-0 mt-0.5 font-semibold text-sm w-6 text-center ${
+                                article.slug === currentSlug
+                                    ? "text-blue-600 dark:text-blue-300"
+                                    : "text-gray-400 dark:text-gray-600 group-hover:text-gray-600 dark:group-hover:text-gray-400"
+                            }`}
+                        >
+                            {idx + 1}.
+                        </span>
+                        <div class="flex-1">
+                            <h4
+                                class={`font-semibold text-sm leading-tight transition-colors duration-200 mb-1 ${
+                                    article.slug === currentSlug
+                                        ? "text-blue-900 dark:text-blue-100"
+                                        : "text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white"
+                                }`}
+                            >
+                                {article.data.title}
+                            </h4>
+                            {description && (
+                                <p class="text-xs text-gray-600 dark:text-gray-400 mt-1 leading-relaxed">
+                                    {description}
+                                </p>
+                            )}
+                        </div>
+                    </a>
+                );
+            })
+        }
+    </div>
+</div>

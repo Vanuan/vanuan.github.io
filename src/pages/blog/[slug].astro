@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import SeriesNavigator from "../../components/SeriesNavigator.astro";
 
 export async function getStaticPaths() {
     const blogPosts = await getCollection("blog");
@@ -21,48 +22,91 @@ interface Props {
             description: string;
             publishDate: Date;
             tags?: string[];
+            series?: string;
+            seriesOrder?: number;
         };
     };
 }
 
 const { post } = Astro.props;
 const { Content } = await post.render();
+
+// Get all posts in the same series, sorted by seriesOrder
+let seriesPosts = [];
+if (post.data.series) {
+    seriesPosts = (
+        await getCollection("blog", (p) => p.data.series === post.data.series)
+    ).sort((a, b) => {
+        // Sort by seriesOrder if available, otherwise fallback to publishDate
+        const orderA = a.data.seriesOrder ?? 0;
+        const orderB = b.data.seriesOrder ?? 0;
+        return orderA - orderB;
+    });
+}
 ---
 
-<Layout title={`${post.data.title} | My Blog`} description={post.data.description}>
+<Layout
+    title={`${post.data.title} | My Blog`}
+    description={post.data.description}
+>
     <article class="max-w-4xl mx-auto py-8">
         <!-- Header Section -->
         <header class="mb-8 border-b border-gray-200 dark:border-gray-700 pb-6">
             <h1 class="text-4xl lg:text-5xl font-bold mb-4 leading-tight">
                 {post.data.title}
             </h1>
-            <p class="text-lg text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+            <p
+                class="text-lg text-gray-600 dark:text-gray-300 mb-4 leading-relaxed"
+            >
                 {post.data.description}
             </p>
-            <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+            <div
+                class="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400"
+            >
                 <time datetime={post.data.publishDate.toISOString()}>
-                    Published on {new Date(post.data.publishDate).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                    })}
+                    Published on {
+                        new Date(post.data.publishDate).toLocaleDateString(
+                            "en-US",
+                            {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                            },
+                        )
+                    }
                 </time>
-                {post.data.tags && post.data.tags.length > 0 && (
-                    <div class="flex flex-wrap gap-2">
-                        {post.data.tags.map((tag) => (
-                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-md text-xs font-medium">
-                                {tag}
-                            </span>
-                        ))}
-                    </div>
-                )}
+                {
+                    post.data.tags && post.data.tags.length > 0 && (
+                        <div class="flex flex-wrap gap-2">
+                            {post.data.tags.map((tag) => (
+                                <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-md text-xs font-medium">
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    )
+                }
             </div>
         </header>
 
         <!-- Content Section -->
-        <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:scroll-mt-20">
+        <div
+            class="prose prose-lg dark:prose-invert max-w-none prose-headings:scroll-mt-20"
+        >
             <Content />
         </div>
+
+        <!-- Series Navigation (Bottom) -->
+        {
+            post.data.series && seriesPosts.length > 1 && (
+                <div class="mt-12">
+                    <SeriesNavigator
+                        series={post.data.series}
+                        seriesPosts={seriesPosts}
+                        currentSlug={post.slug}
+                    />
+                </div>
+            )
+        }
     </article>
 </Layout>
-

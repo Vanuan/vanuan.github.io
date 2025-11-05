@@ -6,6 +6,8 @@ const blogCollection = defineCollection({
     description: z.string(),
     publishDate: z.date(),
     tags: z.array(z.string()).optional(),
+    series: z.string().optional(),
+    seriesOrder: z.number().optional(),
   }),
 });
 
@@ -16,6 +18,8 @@ const songsCollection = defineCollection({
     publishDate: z.date(),
     genre: z.string().optional(),
     tags: z.array(z.string()).optional(),
+    series: z.string().optional(),
+    seriesOrder: z.number().optional(),
   }),
 });
 
@@ -27,6 +31,8 @@ const booksCollection = defineCollection({
     genre: z.string().optional(),
     status: z.enum(["draft", "published", "in-progress"]).optional(),
     tags: z.array(z.string()).optional(),
+    series: z.string().optional(),
+    seriesOrder: z.number().optional(),
     collection: z.string().optional(),
     order: z.number().optional(),
   }),

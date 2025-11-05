@@ -1,0 +1,87 @@
+---
+title: "JavaScript Ecosystem Journey: The Wild Web Era (1995–2010)"
+description: "Exploring the evolution of JavaScript module systems from chaotic beginnings to ES6 standardization, and how this battle shaped modern web development."
+publishDate: 2025-10-26
+series: "javascript-toolchain-evolution"
+seriesOrder: 1
+tags: ["JavaScript", "Web Development", "Modules", "CommonJS", "SPA"]
+---
+
+In the previous article, we established how JavaScript tooling evolved from overwhelming complexity to elegant simplicity. But to understand this journey, we need to examine where it all began.
+
+
+## The Early Days: Script Tags and Global Variables
+
+In 1995, JavaScript was famously born in just 10 days at Netscape. For its first decade, it lived a rather simple life. There was no toolchain. There were no build steps. There weren't even any tools to argue about.
+
+You wrote JavaScript directly in `<script>` tags, and relied entirely on global variables to communicate between different script files.
+
+Simple? Yes. Sustainable for building complex applications? Not a chance.
+
+## The Quality Control: JSLint (2002)
+
+[Douglas Crockford](https://en.wikipedia.org/wiki/Douglas_Crockford) released [JSLint](https://en.wikipedia.org/wiki/JSLint) in 2002, and it was revolutionary for one reason: it was the first tool that told you that you were writing JavaScript wrong. Before JSLint, if your code ran, it was "correct". JSLint introduced the radical idea that there could be better and worse ways to write JavaScript.
+
+It was opinionated. JSLint enforced strong views of its author: No `++` operator. No bitwise operators. Exactly four spaces for indentation, never tabs, and don't even think about arguing.
+
+But developers used it anyway. Because despite it being inflexible, JSLint caught real bugs and found issues that would have caused production failures. For the first time, the JavaScript community had a tool that represented a shared understanding of quality.
+
+Much later, in 2011 it was forked into [JSHint](https://en.wikipedia.org/wiki/JSHint), which allowed for more flexibility and customization. Which in turn in 2013 gave inspiration to [ESLint](https://en.wikipedia.org/wiki/ESLint) which still in 2025 is the most popular tool for linting JavaScript code. Though there's a new contender is in sight: [Biome](https://biomejs.dev/) inspired by now defunct [Rome](https://github.com/rome/tools) project. But more about it in the next articles.
+
+## The Birth of SPA: The Gmail Moment (2004)
+
+Before we talk about jQuery, we need to talk about Gmail.
+
+When Google launched Gmail in 2004, it proved JavaScript could build desktop-class UIs. You could archive emails, switch between conversations, and search your inbox without ever reloading the page. It felt like a desktop application that happened to run in a browser.
+
+The secret was [AJAX (Asynchronous JavaScript and XML)](https://en.wikipedia.org/wiki/Ajax_(programming)). Microsoft had developed `XMLHttpRequest`  object as an ActiveX control for Outlook Web Access in Exchange Server 2000, but nobody had used it to build something like that. Gmail proved that JavaScript wasn't just an afterthought. It could power real applications.
+
+Google Maps followed months later, and suddenly every company wanted to build "Web 2.0" applications. The [Single-Page Application (SPA)](https://en.wikipedia.org/wiki/Single-page_application) concept was in production.
+
+The problem? Building SPAs was incredibly hard. You needed deep JavaScript expertise, extensive knowledge of browser quirks, and a high tolerance for debugging issues that only appeared in Internet Explorer 6.
+
+We needed better tools to build these complex applications. But those tools didn't exist yet.
+
+## Compile-to-JS Attempts
+
+Google's own solution was to avoid JavaScript entirely. The [Google Web Toolkit (GWT, 2006)](https://en.wikipedia.org/wiki/Google_Web_Toolkit) let you write Java that compiled to JavaScript, treating JS as an assembly language rather than something you'd write by hand. Microsoft tried similar approaches with Script#, and [CoffeeScript (2009)](https://en.wikipedia.org/wiki/CoffeeScript) attempted to "fix" the JavaScript syntax.
+
+These compile-to-JS languages represented a belief that JavaScript was too broken to improve directly. History would prove otherwise: the solution wasn't to abandon JavaScript, but to build better JavaScript tools and standards.
+
+But one particular compile-to-JS language, [TypeScript (2012)](https://en.wikipedia.org/wiki/TypeScript), was a success. More of that in later articles.
+
+## The jQuery Era: Peak Simplicity
+
+The mid-2000s belonged to [jQuery](https://en.wikipedia.org/wiki/JQuery), released in 2006. It solved a critical problem: browser incompatibility was making developers miserable. Writing cross-browser JavaScript meant endless conditionals and browser detection hacks.
+
+jQuery's genius was abstraction. You didn't need to care about the underlying browser differences. You didn't need a build process. You just included jQuery from a CDN and started writing code that actually worked consistently.
+
+This was the high point of simplicity in JavaScript development. Your entire toolchain was essentially:
+
+1. A text editor or IDE (though IDE support of scripting languages was limited)
+2. A browser
+3. JSLint if you were into quality
+4. JSMin, another tool by Douglas Crockford for saving some space and loading JS a bit faster
+5. Makefile to automate tasks like linting, minification and concatenation
+
+It was beautifully simple. It was also holding us back from building anything truly complex.
+
+## The Node.js Revolution (2009): Everything Changes
+
+When [Ryan Dahl](https://en.wikipedia.org/wiki/Ryan_Dahl) introduced Node.js in 2009, he transformed JavaScript tooling. Node.js was built on V8, Google's JavaScript engine from Chrome released just a year earlier, and it made JavaScript a real programming language for building real desktop applications, freeing it from the browser prison.
+
+Suddenly, we could write servers, build tools, and command-line utilities in JavaScript.
+
+But there was a problem: Node.js introduced CommonJS modules (`require()`), which browsers didn't understand. Your server-side code and client-side code looked different and behaved differently. This meant that you had to write two versions of your code, one for the server and one for the browser. This created a problem space that was called [Universal/Isomorphic JavaScript](https://en.wikipedia.org/wiki/Isomorphic_JavaScript).
+
+## npm (2010): The Package Explosion Begins
+
+Isaac Schlueter released npm in 2010, bringing the concept that would define the next decade: the package ecosystem. Need a library? `npm install library-name`. Want to share your code? `npm publish`. It was magical.
+
+But npm introduced new complexity. Your project now had a `package.json`, listing dependencies that had their own dependencies, creating a dependency tower. Your simple project that used to be three files now had a `node_modules` folder with thousands of files.
+
+## 2010: The Turning Point
+
+This was the moment we faced fundamental problems that would drive the next era of JavaScript innovation. With Node.js bringing server-side JavaScript and npm creating a package ecosystem, we had the tools to build complex applications. But we also had a new challenge: how do we bridge the gap between server and browser module systems?
+
+The solution should have been simple. Instead, it led to what we now call "The Great Fragmentation" - a period where multiple competing module systems emerged, each trying to solve different aspects of the problem. In our next article, we'll explore how this fragmentation played out between 2010-2015, and how the community eventually found its way back to unity with ES6 modules.
