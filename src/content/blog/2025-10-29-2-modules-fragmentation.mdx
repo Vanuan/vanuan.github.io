@@ -23,7 +23,7 @@ In just two years, modules, packages and server-side JavaScript are born. At a b
 
 But then you look back at the browser.
 
-The browser. Where you're still stitching together <script> tags, where execution happens sequentially, no native module system, where every script evaluation blocks the main thread, developers still rely on global variables to share data between scripts. The old way — concatenating files, managing dependencies by hand, hoping nothing collided in the global namespace — was breaking under the weight of real applications.
+The browser. Where you're still stitching together `<script>` tags, where execution happens sequentially, no native module system, where every script evaluation blocks the main thread, developers still rely on global variables to share data between scripts. The old way — concatenating files, managing dependencies by hand, hoping nothing collided in the global namespace — was breaking under the weight of real applications.
 
 Two worlds. One language. And absolutely no way to make them talk to each other.
 
@@ -166,9 +166,9 @@ But Node.js was another matter entirely. Node.js introduced an experimental --ex
 
 When ES6 modules were standardized (2015), Node.js had been using CommonJS for 7 years. Changing the module system overnight would break millions of packages. So Node.js did what seemed prudent: supported both.
 
-Michael Jackson controversy proposed a solution: .js files use CommonJS, .mjs files use ES6. This split made imports ambiguous — when you import { foo } from 'bar', is it looking for bar.mjs or bar.js? So the standard demanded full filename with extension.
+Michael Jackson controversy proposed a solution: .js files use CommonJS, .mjs files use ES6. This split made imports ambiguous — when you `import { foo } from 'bar'`, is it looking for `bar.mjs` or `bar.js`? So the standard demanded full filename with extension.
 
-But still there was a dual package problem. So package.json came to the rescue:
+But still there was a dual package problem. So `package.json` came to the rescue:
 
 ```json
 {
